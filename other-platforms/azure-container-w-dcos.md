@@ -108,11 +108,11 @@ where `your-private.key` is the private key that corresponds to `keyData` in the
 
 After the DCOS GUI is accessible, install the DCOS CLI on your local machine.
 
-### Install Portworx with Kubernetes
+#### Install an application
 
-After completing the previous steps, you are ready to install Portworx with Kubernetes. Click on the link below to find the instructions for this install.
+You are ready to install a application that uses Portworx. To do this, click the link below and find the application you want to install.
 
-{% page-ref page="../kubernetes-portworx-install/" %}
+{% page-ref page="dc-os/application-installs-on-dc-os/" %}
 
 
 

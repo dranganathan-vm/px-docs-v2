@@ -4,7 +4,7 @@ To install Portworx with Kubernetes, follow the steps below.
 
 If you are not installing Portworx with Kubernetes, follow the steps in the next section, _Installing with Other Orchestrators or Standalone_.
 
-**Step 1**: Ensure your system meets the install requirements. These requirements are listed in the previous section, _Prerequisites_.
+**Step 1**: Your must have Kubernetes version 1.6 or later installed. In addition, ensure your system meets the install requirements that are listed in the previous section, _Prerequisites_.
 
 **Step 2**: Install your platform that will host a container orchestrator, Portworx and any needed applications. If your container orchestrator is Kubernetes, click on the _Install in the Cloud_  link or the _Install On-Premise_ link below, as appropriate. If your container orchestrator is not Kubernetes, see the topic _Install on Other Platforms_.
 

@@ -150,3 +150,7 @@ If you add more agents to your DCOS cluster and you want to install Portworx on 
 
 ![Scale up PX Nodes](https://docs.portworx.com/images/dcos-px-scale-up.png)
 
+#### Install an application
+
+You are ready to install a application that uses Portworx. To do this, go to the next section, _Application Installs_.
+
