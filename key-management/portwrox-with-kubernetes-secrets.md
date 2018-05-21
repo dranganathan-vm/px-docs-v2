@@ -17,7 +17,7 @@ When generating the [Portworx Kubernetes spec file](https://install.portworx.com
 
 **Permissions to access secrets**
 
-Portworx stores credentials/secrets in a Kubernetes namespace called `portworx`. It needs permissions to access secrets under this namespace. If you have upgraded Portworx using the [recommended method](https://docs.portworx.com/scheduler/kubernetes/upgrade.html), then you will not have to create the namespace and roles given below. If the following objects are missing, then create it using `kubectl`:
+Portworx stores credentials/secrets in a Kubernetes namespace called `portworx`. It needs permissions to access secrets under this namespace. If you have upgraded Portworx as explained in the _Kubernetes_ section under _Upgrades_ in the _Reference_ topic, then you will not have to create the namespace and roles given below. If the following objects are missing, then create it using `kubectl`:
 
 ```text
 cat <<EOF | kubectl apply -f -

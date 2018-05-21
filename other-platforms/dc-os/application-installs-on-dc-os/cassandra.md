@@ -1,20 +1,5 @@
 # Cassandra
 
-DC/OS provides a Cassandra service that makes it easy to deploy and manage Cassandra on Mesosphere DC/OS. This guide will help you to install and run the [containerized Cassandra](https://portworx.com/use-case/cassandra-docker-container/) service backed by Portworx volumes for [persistent DCOS storage](https://portworx.com/use-case/persistent-storage-dcos/). With [Portworx backing your Cassandra cluster](https://docs.portworx.com/applications/cassandra.html), you can
-
-* Recover faster during a failure
-* Achieve higher density by running multiple Cassandra rings on the same DC/OS hosts and
-* Simplify deployments
-
-The source code for these services can be found here: [Portworx DCOS-Commons Frameworks](https://github.com/portworx/dcos-commons)
-
-> **Note:**  
-> This framework is only supported directly by Portworx. Please contact support@portworx.com directly for any support issues related with using this framework.
-
-Please make sure you have installed [Portworx on DCOS](https://docs.portworx.com/scheduler/mesosphere-dcos/install.html) before proceeding further.
-
-### Install {#install}
-
 The Portworx-Cassandra service can be found in the DC/OS catalog:
 
 ![Cassandra-PX in DCOS Universe](https://docs.portworx.com/images/dcos-cassandra-px-universe.png)
@@ -84,6 +69,15 @@ If the volume was created with a replication factor greater than 1, then the fra
 You do not need to create additional PX volumes manually to scale up your cluster. Just go to the Cassandra service page, click on the three dots on the top right corner of the page, select “nodes”, scroll down and increase the nodes parameter to the desired nodes.
 
 Click on “Review and Run” and then “Run Service”. The service scheduler should restart with the updated node count and create more Cassandra nodes with newly created PX volumes. Please make sure you have enough resources and nodes available to scale up the number of nodes. You also need to make sure Portworx is installed on all the agents in the DCOS cluster.
+
+### Portworx Framework for Cassandra
+
+The source code for these services can be found here: [Portworx DCOS-Commons Frameworks](https://github.com/portworx/dcos-commons)
+
+> **Note:**  
+> This framework is only supported directly by Portworx. Please contact support@portworx.com directly for any support issues related with using this framework.
+
+Please make sure you have installed [Portworx on DCOS](https://docs.portworx.com/scheduler/mesosphere-dcos/install.html) before proceeding further.
 
 ### See Also {#see-also}
 
