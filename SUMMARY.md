@@ -1,10 +1,11 @@
 # Table of contents
 
 * [Portworx Documentation](README.md)
-* [Installation Overview](installation-requirements/README.md)
+* [Installation- Start Here](installation-requirements/README.md)
   * [Prerequisites](installation-requirements/prerequisites.md)
   * [Installing with Kubernetes](installation-requirements/installing-with-kubernetes.md)
   * [Installing with Other Orchestrators or Standalone](installation-requirements/installing-with-other-orchestrators-or-standalone.md)
+  * [Installation](installation-requirements/installation.md)
 * Install in the Cloud with Kubernetes
   * [Azure \(Container w/Kubernetes\)](cloud-provider-installs/azure-container-w-kubernetes.md)
   * [Azure \(Kubernetes Service\)](cloud-provider-installs/azure-kubernetes-service.md)
