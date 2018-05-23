@@ -1,4 +1,4 @@
-# OCI
+# Standalone \(OCI\)
 
 Why OCI
 

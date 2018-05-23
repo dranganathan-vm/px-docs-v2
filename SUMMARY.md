@@ -1,29 +1,17 @@
 # Table of contents
 
 * [Portworx Documentation](README.md)
-* [Installation- Start Here](installation-requirements/README.md)
+* [Start Here: Installation](installation-requirements/README.md)
   * [Prerequisites](installation-requirements/prerequisites.md)
-  * [Installing with Kubernetes](installation-requirements/installing-with-kubernetes.md)
-  * [Installing with Other Orchestrators or Standalone](installation-requirements/installing-with-other-orchestrators-or-standalone.md)
-  * [Installation](installation-requirements/installation.md)
-* Install in the Cloud with Kubernetes
-  * [Azure \(Container w/Kubernetes\)](cloud-provider-installs/azure-container-w-kubernetes.md)
-  * [Azure \(Kubernetes Service\)](cloud-provider-installs/azure-kubernetes-service.md)
-  * [AWS \(KOPS and Auto-Scaling Groups\)](cloud-provider-installs/aws-kops/README.md)
-    * [Spec Parameter Notes](cloud-provider-installs/aws-kops/spec-parameter-notes.md)
-  * [Google Kubernetes Engine](cloud-provider-installs/google-kubernetes-engine/README.md)
-    * [Spec Parameter Notes](cloud-provider-installs/google-kubernetes-engine/spec-parameter-notes.md)
-* Install On-Premise with Kubernetes
-  * [OpenShift](install-anywhere/openshift/README.md)
-    * [Spec Parameter Notes](install-anywhere/openshift/spec-parameter-notes.md)
+  * [Begin Your Installation](installation-requirements/begin-your-installation.md)
+* [Install with Kubernetes](installation.md)
 * [Portworx Install with Kubernetes](kubernetes-portworx-install/README.md)
   * [1. Generate the Spec](kubernetes-portworx-install/1.-generate-the-spec-1/README.md)
-    * [1a. Parameter Reference](kubernetes-portworx-install/1.-generate-the-spec-1/1.-generate-the-spec.md)
-    * [1b. Parameter Notes](kubernetes-portworx-install/1.-generate-the-spec-1/1b.-parameter-notes.md)
-    * [1c. Create the Spec File](kubernetes-portworx-install/1.-generate-the-spec-1/1b.-create-the-spec-file.md)
+    * [Parameter Reference](kubernetes-portworx-install/1.-generate-the-spec-1/1.-generate-the-spec.md)
+    * [Parameter Notes](kubernetes-portworx-install/1.-generate-the-spec-1/1b.-parameter-notes.md)
+    * [Create the Spec File](kubernetes-portworx-install/1.-generate-the-spec-1/1b.-create-the-spec-file.md)
   * [2. Secure ETCD and Certificates](kubernetes-portworx-install/2.-secure-etcd-and-certificates.md)
   * [3. Apply the Spec](kubernetes-portworx-install/4.-apply-the-spec.md)
-  * [4. Install an Application](kubernetes-portworx-install/5.-install-a-container-app.md)
 * [Application Installs with Kubernetes](container-app-installs/README.md)
   * [Cassandra](container-app-installs/cassandra.md)
   * [Elastic Search and Kibana](container-app-installs/elastic-search-and-kibana.md)
@@ -46,7 +34,7 @@
   * [Run Hyper Converged](kubernetes-storage-operations/run-hyper-converged.md)
   * [Configure Kubernetes Secrets](kubernetes-storage-operations/configure-kubernetes-secrets.md)
   * [Update Portworx Geography Info](kubernetes-storage-operations/update-portworx-geography-info.md)
-* Install with Other Orchestrators
+* Install with Other Orchestrators or Standalone
   * [Azure \(Container w/DCOS\)](other-platforms/azure-container-w-dcos.md)
   * [DC/OS](other-platforms/dc-os/README.md)
     * [Application Installs](other-platforms/dc-os/application-installs-on-dc-os/README.md)
@@ -58,9 +46,9 @@
       * [Elastic Search and Kibana](other-platforms/dc-os/application-installs-on-dc-os/elastic-search-and-kibana.md)
   * [Nomad](other-platforms/nomad.md)
   * [Rancher](other-platforms/rancher.md)
+  * [Standalone \(OCI\)](other-platforms/oci.md)
   * [Swarm](other-platforms/swarm.md)
 * Install Standalone
-  * [OCI](standalone-installs/oci.md)
 * Data Volumes
   * [Create and Manage Volumes](data-volumes/create-and-manage-volumes.md)
   * [Shared Volumes](data-volumes/shared-volumes.md)

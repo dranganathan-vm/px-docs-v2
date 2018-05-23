@@ -1,15 +1,11 @@
-# Installation
+# Install with Kubernetes
 
-
-
-
+You can install Portworx with Kubernetes on various cloud and on-premise platforms. Find your platform below and follow the installation instructions. All platforms require you to have Kubernetes version 1.6 or later installed.
 
 ### Install in the Cloud with Kubernetes
 
 {% tabs %}
 {% tab title="Azure \(Container w/Kubernetes\)" %}
-To set up the Azure Container w/Kubernetes to use Portworx, follow the steps below.
-
 ### Install the Azure Container Service Engine
 
 The ACS Engine binary files are located [here](https://github.com/Azure/acs-engine/releases). To install the ACS Engine on Linux, run this command:
@@ -103,6 +99,8 @@ where `$RGNAME` corresponds to the resource group name created above, and `$NAME
 {% endtab %}
 
 {% tab title="Azure \(Kubernetes Service\)" %}
+To set up the Azure Kubernetes Service \(AKS\) to use Portworx, follow the steps below. For more information on AKS, see this [article](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes).
+
 ### Install the Azure CLI
 
 Follow the steps [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) to install the Azure CLI.
@@ -199,7 +197,7 @@ Portworx creates and attaches EBS volumes. As such, it needs the AWS permissions
 
 You can provide these permissions to Portworx in multiple ways. Click on the link below for more information.
 
-{% page-ref page="../key-management/portworx-with-aws-kms.md" %}
+{% page-ref page="key-management/portworx-with-aws-kms.md" %}
 
 ### Specify a disk template {#ebs-volume-template}
 
@@ -243,9 +241,7 @@ vol-0055e5913b79fb49d: 1000 GiB GP2
 
 Ensure that these EBS volumes are created in the same region as the auto scaling group.
 
-You will use the EBS volume Id \(e.g. _vol-04e2283f1925ec9ee_\) in the _Install Portworx with Kubernetes_ topic, which is discussed below.
-
-### 
+You will use the EBS volume Id \(e.g. _vol-04e2283f1925ec9ee_\) in the _Install Portworx with Kubernetes_ topic, which is discussed next.
 {% endtab %}
 
 {% tab title="Google Kubernetes Engine" %}
@@ -289,9 +285,7 @@ For example, if you created a template GCP disk called _px-disk-template-1_, you
 
 Ensure that these disks are created in the same zone as the GCP node group.
 
-You will use your existing GCP disk's template in the _Install Portworx with Kubernetes_ topic, which is discussed below.
-
-### 
+You will use your existing GCP disk's template in the _Install Portworx with Kubernetes_ topic, which is discussed next.
 {% endtab %}
 {% endtabs %}
 
@@ -328,13 +322,11 @@ oc create secret docker-registry regcred --docker-server=registry.connect.redhat
 {% endtab %}
 {% endtabs %}
 
+In the next topic, you will install Portworx with Kubernetes.
 
 
 
 
 
 
-
-
-Install with Other Orchestrators
 
