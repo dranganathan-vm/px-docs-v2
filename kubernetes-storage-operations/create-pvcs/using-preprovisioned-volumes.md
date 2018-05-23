@@ -12,7 +12,7 @@ First create a volume using Portworx CLI. On one of the nodes with Portworx inst
 
 For more details on creating volumes using pxctl, click the link below.
 
-{% page-ref page="../../reference/command-line-reference/volumes.md" %}
+{% page-ref page="../../reference/volumes.md" %}
 
 Alternatively, you can also use snapshots that you created previously. To learn more, click the link below.
 
