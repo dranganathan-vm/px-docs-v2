@@ -64,6 +64,7 @@
     * [Snapshots](reference/command-line-reference/snaps/README.md)
       * [Version 1.2](reference/command-line-reference/snaps/version-1.2.md)
       * [Version 1.3 and Later](reference/command-line-reference/snaps/version-1.3-and-later.md)
+    * [Spec File Generation](reference/command-line-reference/generate-the-spec-command-line.md)
   * [Volumes](reference/volumes.md)
   * [Installation Arguments](reference/installation-arguments.md)
   * [Node Configuration](reference/node-configuration.md)
