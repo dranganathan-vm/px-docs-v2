@@ -1,10 +1,8 @@
 # Table of contents
 
 * [Portworx Documentation](README.md)
-* [Start Here: Installation](installation-requirements/README.md)
-  * [Prerequisites](installation-requirements/prerequisites.md)
-  * [Begin Your Installation](installation-requirements/begin-your-installation.md)
-* [Install with Kubernetes](installation.md)
+* [Start Here: Installation](begin-your-installation.md)
+* [Platform Install with Kubernetes](installation.md)
 * [Portworx Install with Kubernetes](kubernetes-portworx-install/README.md)
   * [1. Generate the Spec](kubernetes-portworx-install/1.-generate-the-spec-1/README.md)
     * [Parameter Reference](kubernetes-portworx-install/1.-generate-the-spec-1/1.-generate-the-spec.md)
@@ -12,7 +10,7 @@
     * [Create the Spec File](kubernetes-portworx-install/1.-generate-the-spec-1/1b.-create-the-spec-file.md)
   * [2. Secure ETCD and Certificates](kubernetes-portworx-install/2.-secure-etcd-and-certificates.md)
   * [3. Apply the Spec](kubernetes-portworx-install/4.-apply-the-spec.md)
-* [Application Installs with Kubernetes](container-app-installs/README.md)
+* [Application Install with Kubernetes](container-app-installs/README.md)
   * [Cassandra](container-app-installs/cassandra.md)
   * [Elastic Search and Kibana](container-app-installs/elastic-search-and-kibana.md)
   * [Hadoop and HDFS](container-app-installs/hadoop-and-hdfs.md)
@@ -48,7 +46,6 @@
   * [Rancher](other-platforms/rancher.md)
   * [Standalone \(OCI\)](other-platforms/oci.md)
   * [Swarm](other-platforms/swarm.md)
-* Install Standalone
 * Data Volumes
   * [Create and Manage Volumes](data-volumes/create-and-manage-volumes.md)
   * [Shared Volumes](data-volumes/shared-volumes.md)

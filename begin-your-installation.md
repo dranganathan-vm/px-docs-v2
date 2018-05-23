@@ -1,4 +1,6 @@
-# Prerequisites
+# Start Here: Installation
+
+## Installation Prerequisites
 
 Prior to installing Portworx, your system needs to meet the hardware, software and network requirements listed below.
 
@@ -32,4 +34,14 @@ Prior to installing Portworx, your system needs to meet the hardware, software a
 **Note 3:**  If you are installing Portworx 1.2, you must configure Docker to use shared mounts propagation. To do this, run `sudo mount –make-shared /` in your SSH window.  Portworx 1.3 and higher automatically enables shared mounts.
 
 **Note 4**: Portworx installations require a minimum of 3 nodes to be used on a cluster. The Portworx Enterprise edition supports up to 1000 nodes per cluster. The Portworx Developer edition does not allow more than 3 nodes per cluster.  All nodes running a Portworx container must be synchronized and NTP must be set up.
+
+## Install Portworx
+
+Click on the link below that applies to you.
+
+{% page-ref page="installation.md" %}
+
+{% page-ref page="other-platforms/" %}
+
+
 

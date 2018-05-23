@@ -259,7 +259,7 @@ Portworx runs as a Daemonset in Kubernetes. Hence when you add a node or a worke
 
 If you did use the [Terraform scripts](https://github.com/portworx/terraporx) to create a kubernetes cluster, you would need to update the minion count and apply the changes via Terraform to add a new Node.
 
-Observe the Portworx cluster once you add a new node. Execute the command
+Observe the Portworx cluster once you add a new node. Execute the command:
 
 ```text
 kubectl get ds -n kube-system

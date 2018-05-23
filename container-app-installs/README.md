@@ -1,4 +1,4 @@
-# Application Installs with Kubernetes
+# Application Install with Kubernetes
 
 This topic explains how to install various applications for use with Portworx. It assumes you have completed the steps in the preceding topic, "Kubernetes Portworx Install".
 
