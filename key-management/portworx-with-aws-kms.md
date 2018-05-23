@@ -23,7 +23,7 @@ If you are installing Portworx on Kubernetes, when generating the Portworx Kuber
 
 For instructions on generating the Portworx spec for Kubernetes, click the link below.
 
-{% page-ref page="../kubernetes-portworx-install/" %}
+{% page-ref page="../portworx-install-with-kubernetes/" %}
 
 If you already have a running Portworx installation, update `/etc/pwx/config.json` on each node.
 

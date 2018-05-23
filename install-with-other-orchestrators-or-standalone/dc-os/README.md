@@ -58,7 +58,7 @@ Specify your kvdb \(consul or etcd\) server if you don’t want to use the etcd 
 
 To use DC/OS secrets for Volume Encryption and storing Cloud Credentials, click the link below.
 
-{% page-ref page="../../key-management/portwrox-with-dc-os-secrets.md" %}
+{% page-ref page="../../key-management/portworx-with-dc-os-secrets.md" %}
 
 **Etcd Options**
 

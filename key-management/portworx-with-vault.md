@@ -15,7 +15,7 @@ If you are installing Portworx on Kubernetes, when generating the [Portworx Kube
 
 To generate Portworx spec for Kubernetes, refer instructions, click on the link below.
 
-{% page-ref page="../kubernetes-portworx-install/" %}
+{% page-ref page="../portworx-install-with-kubernetes/" %}
 
 If you already have a running Portworx installation, see the section on each node.
 

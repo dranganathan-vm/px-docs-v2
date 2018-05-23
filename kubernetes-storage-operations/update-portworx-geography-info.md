@@ -4,7 +4,7 @@
 
 There are different ways in which you can provide this information to Portworx nodes based on your scheduler. If you want to set the rack, zone and region information using environment variables, click the link below.
 
-{% page-ref page="../data-volumes/update-portworx-geography-info.md" %}
+{% page-ref page="../data-volumes/update-geography-info.md" %}
 
 ### Providing rack info to Portworx using node labels {#providing-rack-info-to-portworx-using-node-labels}
 

@@ -16,7 +16,7 @@ For more details on creating volumes using pxctl, click the link below.
 
 Alternatively, you can also use snapshots that you created previously. To learn more, click the link below.
 
-{% page-ref page="../../reference/command-line-reference/snaps/" %}
+{% page-ref page="../../reference/command-line/snapshots/" %}
 
 ### Using the Portworx volume {#using-the-portworx-volume}
 

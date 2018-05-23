@@ -112,7 +112,7 @@ After the DCOS GUI is accessible, install the DCOS CLI on your local machine.
 
 You are ready to install a application that uses Portworx. To do this, click the link below and find the application you want to install.
 
-{% page-ref page="dc-os/application-installs-on-dc-os/" %}
+{% page-ref page="dc-os/application-installs/" %}
 
 
 

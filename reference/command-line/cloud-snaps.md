@@ -8,7 +8,7 @@ Note: All cloudsnap operations requires secrets login to configured endpoint wit
 
 Also, to see how to configure cloud provider credentials, click the link below.
 
-{% page-ref page="host.md" %}
+{% page-ref page="credentials.md" %}
 
 **pxctl cloudsnap –help**
 

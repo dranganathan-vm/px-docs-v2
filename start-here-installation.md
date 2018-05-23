@@ -39,9 +39,7 @@ Prior to installing Portworx, your system needs to meet the hardware, software a
 
 Click on the link below that applies to you.
 
-{% page-ref page="installation.md" %}
-
-{% page-ref page="other-platforms/" %}
+{% page-ref page="platform-install-with-kubernetes.md" %}
 
 
 

@@ -18,7 +18,7 @@ If Portworx nodes are provided with the information about their region then they
 
 To update the rack information in Kubernetes using node labels, click the link below.
 
-{% page-ref page="update-portworx-geography-info.md" %}
+{% page-ref page="update-geography-info.md" %}
 
 #### Updating rack information through environment variables {#updating-rack-information-through-environment-variables}
 
