@@ -41,5 +41,7 @@ Click on the link below that applies to you.
 
 {% page-ref page="platform-install-with-kubernetes.md" %}
 
+{% page-ref page="install-with-other-orchestrators-or-standalone/" %}
+
 
 
