@@ -1,21 +1,18 @@
 # Portworx Documentation
 
-This technical guide teaches you to how install and maintain Portworx. The main topics covered are:
+This guide teaches you how to install and maintain Portworx. The guide is divided into three parts, as illustrated below.
 
-* Installing Portworx with Kubernetes, with other container orchestrators, or standalone as an open container.
-* Upgrading Portworx
-* Installing various applications to use with Portworx
-* Using data volumes
-* Working with Portworx securely by using encryption keys
-* Understanding the commands available to be run on the command line
+![](.gitbook/assets/documentationorganization.png)
 
-### Conventions Used in this Guide
 
-This `style` indicates code that is part of a file or code that should be typed on the command line.
 
-This **style** , when not used as the first word in a sentence or heading, indicates a user interface element. Example: Click **Ok** to accept the changes in the dialog box.
+Begin by reading the section _Start Here: Installation_ in Part 1. 
 
-This _style_ indicates a topic or section that is found in the navigation tree on the left. A topic is a high level entity, like a chapter in a book, that has multiple sections under it.
+Following that, proceed to Part 2. Follow one of the two paths shown in the orange circular rectangles. The path you take depends on the container orchestrator you are using during your install.
+
+After finishing Part 2, your Portworx installation is complete. You should read Part 3 for information on maintaining Portworx.
+
+As you work through the install in Parts 1 and 2, you do not need to refer back to this page to see what to do next. The instructions will guide you along the right path.
 
 ### Release Notes
 
