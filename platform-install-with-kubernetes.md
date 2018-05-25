@@ -2,7 +2,7 @@
 
 You can install Portworx with Kubernetes on various cloud and on-premise platforms. Find your platform below and follow the installation instructions. All platforms require you to have Kubernetes version 1.6 or later installed.
 
-### Install in the Cloud with Kubernetes
+## Install in the Cloud with Kubernetes
 
 {% tabs %}
 {% tab title="Azure \(Container w/Kubernetes\)" %}
@@ -289,7 +289,7 @@ You will use your existing GCP disk's template in the _Install Portworx with Kub
 {% endtab %}
 {% endtabs %}
 
-### Install On-Premise with Kubernetes
+## Install On-Premise with Kubernetes
 
 {% tabs %}
 {% tab title="Openshift" %}

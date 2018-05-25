@@ -2,8 +2,6 @@
 
 This document describes how to dynamically provision a volume using Kubernetes and Portworx.
 
-#### Using Dynamic Provisioning {#using-dynamic-provisioning}
-
 Using Dynamic Provisioning and Storage Classes you don’t need to create Portworx volumes out of band and they will be created automatically. Using Storage Classes objects an admin can define the different classes of Portworx Volumes that are offered in a cluster. Following are the different parameters that can be used to define a Portworx Storage Class
 
 | Name | Description | Example |
@@ -24,9 +22,9 @@ Using Dynamic Provisioning and Storage Classes you don’t need to create Portwo
 | sticky | Flag to create sticky volumes that cannot be deleted until the flag is disabled | sticky: “true” |
 | journal | \(PX 1.3 and higher\) Flag to indicate if you want to use journal device for the volume’s metadata. This will use the journal device that you used when installing Portworx. As of PX version 1.3, it is recommended to use a journal device to absorb PX metadata writes. Default: false | journal: “true” |
 
-#### Provision volumes {#provision-volumes}
+## Provision Volumes
 
-**Step1: Create Storage Class.**
+### **Step 1: Create a storage class.**
 
 Create the storageclass:
 
@@ -60,7 +58,7 @@ Verifying storage class is created:
      No events.
 ```
 
-**Step2: Create Persistent Volume Claim.**
+### **Step 2: Create a persistent volume claim**
 
 Creating the persistent volume claim:
 
@@ -123,7 +121,7 @@ Verifying persistent volume claim is created:
     No events.
 ```
 
-**Step3: Create Pod which uses Persistent Volume Claim with storage class.**
+### **Step 3: Create Pod which uses Persistent Volume Claim with storage class**
 
 Create the pod:
 

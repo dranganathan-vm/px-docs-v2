@@ -2,11 +2,11 @@
 
 You can use PX-Developer to implement storage for Rancher. Portworx pools your servers’ capacity and is deployed as a container. This section, qualified using Rancher v1.5.5, Cattle v0.178.3, describes how to use Portworx within Rancher.
 
-Step 1: Install Rancher
+## Step 1: Install Rancher
 
 Follow the instructions for installing [Rancher](http://docs.rancher.com/rancher/latest/en/quick-start-guide/).
 
-### Step 2: Create/Configure PX-Ready Rancher Hosts {#step-2-createconfigure-px-ready-rancher-hosts}
+### Step 2: Create/Configure PX-Ready Rancher Hosts
 
 > **Note** : Portworx requires that Rancher hosts have at least one non-root disk or partition to contribute.
 
