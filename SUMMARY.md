@@ -73,10 +73,10 @@
     * [Lighthouse On-Premise](reference/release-notes/lighthouse-on-premise.md)
   * [REST API](reference/rest-api.md)
   * Upgrades
-    * [OCI](reference/upgrades/oci/README.md)
-      * [Migrating from Docker to OCI](reference/upgrades/oci/migrating-from-docker-to-oci.md)
-    * [Kubernetes](reference/upgrades/kubernetes.md)
-    * [DC/OS](reference/upgrades/dc-os.md)
+    * [Upgrading with DC/OS](reference/upgrades/dc-os.md)
+    * [Upgrading with Kubernetes](reference/upgrades/kubernetes/README.md)
+      * [Migrating to OCI](reference/upgrades/kubernetes/migrating-to-oci.md)
+    * [Upgrading with Docker \(Standalone\)](reference/upgrades/upgrading-with-docker-standalone.md)
 * Key Management
   * [Portworx with AWS KMS](key-management/portworx-with-aws-kms.md)
   * [Portworx with Kubernetes Secrets](key-management/portworx-with-kubernetes-secrets.md)

@@ -1,4 +1,4 @@
-# DC/OS
+# Upgrading with DC/OS
 
 This guide walks through upgrading Portworx OCI container deployed on DCOS through the framework available in the DCOS catalog.
 

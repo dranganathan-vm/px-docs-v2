@@ -1,17 +1,13 @@
-# Kubernetes
-
-To upgrade to a 1.2 release, refer to [Upgrading Portworx to a 1.2 release](https://docs.portworx.com/scheduler/kubernetes/upgrade-1.2.html)
-
-For all other releases, follow this page.
+# Upgrading with Kubernetes
 
 > **Note:**  
 > We do not recommend upgrading Portworx using [Kubernetes instructions](https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/) \(e.g. via `kubectl set image ds/portworx portworx=portworx/XXXX:### -n kube-system`\).
 
-### Upgrading Portworx {#upgrading-portworx}
-
 This guide describes the procedure to upgrade Portworx running as OCI container using [talisman](https://github.com/portworx/talisman).
 
-You are running Portworx as OCI if the Portworx daemonset image is _portworx/oci-monitor_. If not, you first need to [migrate to OCI](https://docs.portworx.com/scheduler/kubernetes/upgrade.html#docker-to-oci).
+You are running Portworx as OCI if the Portworx daemonset image is _portworx/oci-monitor_. If not, you first need to migrate to OCI. To do that, click the link below.
+
+{% page-ref page="migrating-to-oci.md" %}
 
 To upgrade to the **1.3 stable** release, run the curl command: `curl -fsL https://install.portworx.com/upgrade | bash -s`
 
@@ -101,20 +97,4 @@ If the upgrade job crashes unexpectedly and fails to restore shared applications
 ```text
 curl -fsL https://install.portworx.com/1.3/upgrade | bash -s -- --scaledownsharedapps off
 ```
-
-### Migrating from Legacy Portworx to Portworx with OCI {#migrating-from-legacy-portworx-to-portworx-with-oci}
-
-If your Portworx DaemonSet image is _portworx/oci-monitor_, you are already running as OCI and this section is not relavent to your cluster.
-
-The legacy Portworx installations had deployed the core Portworx engine as Docker containers, but since then we have changed the deployments to run Portworx via [OCI runC](https://github.com/opencontainers/runc), which eliminates cyclical dependencies with docker and kubelet, speeds up service restarts, and brings other improvements.
-
-When deployed as OCI, Portworx runs an OCI monitor as a DaemonSet. The OCI monitor pod on each node manages the lifecycle of a systemd service that actually runs the Portworx storage engine as a runc container.
-
-To migrate to OCI, please follow the [migration instructions](https://docs.portworx.com/scheduler/kubernetes/docker-to-oci.html).
-
-### Upgrading Legacy Portworx running as Docker containers {#upgrading-legacy-portworx-running-as-docker-containers}
-
-Since Portworx v1.2.11, the recommended method of installing Portworx is using OCI. If your Portworx DaemonSet image is _portworx/oci-monitor_, you are already running as OCI and this section is not relavent to your cluster.
-
-If your Portworx DaemonSet image is _portworx/px-enterprise_, you are running Portworx as Docker containers. It is recommended you first [migrate to OCI using these steps](https://docs.portworx.com/scheduler/kubernetes/upgrade.html#docker-to-oci). Once migrated to OCI, you can use the [OCI upgrade instructions](https://docs.portworx.com/scheduler/kubernetes/upgrade.html#oci-upgrade).
 
