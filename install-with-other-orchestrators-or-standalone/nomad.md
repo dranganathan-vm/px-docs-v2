@@ -61,7 +61,7 @@ Portworx provides an important feature that enables applications to have storage
 
 The feature, is also referred to as `inline volume creation` . For more information, click the link below and see the section _Inline volume spec_.
 
-{% page-ref page="../data-volumes/create-and-manage-volumes.md" %}
+{% page-ref page="../reference/command-line/data-volumes/create-and-manage-volumes.md" %}
 
 Using this feature can be seen in the above example in the `volumes` clause. Note than all relevent Portworx volume metadata can be specified through this mechanism.
 

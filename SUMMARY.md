@@ -43,14 +43,6 @@
   * [Rancher](install-with-other-orchestrators-or-standalone/rancher.md)
   * [Standalone \(OCI\)](install-with-other-orchestrators-or-standalone/standalone-oci.md)
   * [Swarm](install-with-other-orchestrators-or-standalone/swarm.md)
-* Data Volumes
-  * [Create and Manage Volumes](data-volumes/create-and-manage-volumes.md)
-  * [Shared Volumes](data-volumes/shared-volumes.md)
-  * [Snapshots](data-volumes/snapshots.md)
-  * [Updating Volumes](data-volumes/updating-volumes.md)
-  * [Encrypted Volumes](data-volumes/encrypted-volumes.md)
-  * [Class of Service](data-volumes/class-of-service.md)
-  * [Update Geography Info](data-volumes/update-geography-info.md)
 * Reference
   * Command Line
     * [Basics](reference/command-line/basics.md)
@@ -58,6 +50,14 @@
     * [Cloud Drives \(ASG\)](reference/command-line/cloud-drives-asg.md)
     * [Cluster](reference/command-line/cluster.md)
     * [Credentials](reference/command-line/credentials.md)
+    * Data Volumes
+      * [Create and Manage Volumes](reference/command-line/data-volumes/create-and-manage-volumes.md)
+      * [Shared Volumes](reference/command-line/data-volumes/shared-volumes.md)
+      * [Snapshots](reference/command-line/data-volumes/snapshots.md)
+      * [Updating Volumes](reference/command-line/data-volumes/updating-volumes.md)
+      * [Encrypted Volumes](reference/command-line/data-volumes/encrypted-volumes.md)
+      * [Class of Service](reference/command-line/data-volumes/class-of-service.md)
+      * [Update Geography Info](reference/command-line/data-volumes/update-geography-info.md)
     * [Group Snaps](reference/command-line/group-snaps.md)
     * [License](reference/command-line/license.md)
     * [Service](reference/command-line/service.md)

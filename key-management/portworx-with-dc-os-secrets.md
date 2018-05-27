@@ -57,7 +57,7 @@ You need to restart Portworx for the _config.json_ to take effect:
 
 The following sections describe the key generation process with Portworx and DC/OS which can be used for encrypting volumes. For more information about encrypted volumes, click here:
 
-{% page-ref page="../data-volumes/encrypted-volumes.md" %}
+{% page-ref page="../reference/command-line/data-volumes/encrypted-volumes.md" %}
 
 **Setting cluster wide secret key**
 

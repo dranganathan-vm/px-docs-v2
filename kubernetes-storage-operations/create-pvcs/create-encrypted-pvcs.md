@@ -4,7 +4,7 @@
 
 This document describes how to provision an encrypted volume using Kubernetes and Portworx. For more information on encryption, click on the link below.
 
-{% page-ref page="../../data-volumes/encrypted-volumes.md" %}
+{% page-ref page="../../reference/command-line/data-volumes/encrypted-volumes.md" %}
 
 Before you start using PVC encryption, you need to setup a secrets provider to store your secret keys and configure Portworx to use it. Click on the link below for more information.
 
