@@ -1,4 +1,4 @@
-# Upgrading with Kubernetes
+# Upgrade
 
 > **Note:**  
 > We do not recommend upgrading Portworx using [Kubernetes instructions](https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/) \(e.g. via `kubectl set image ds/portworx portworx=portworx/XXXX:### -n kube-system`\).

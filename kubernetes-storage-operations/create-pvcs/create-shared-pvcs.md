@@ -31,8 +31,6 @@ parameters:
    shared: "true"
 ```
 
-[Download example](https://docs.portworx.com/k8s-samples/portworx-volume-shared-sc.yaml?raw=true)
-
 Note the `shared` field in the list of parameters is set to true. Verifying storage class is created:
 
 ```text
@@ -69,8 +67,6 @@ spec:
      requests:
        storage: 10Gi
 ```
-
-[Download example](https://docs.portworx.com/k8s-samples/portworx-volume-shared-pvc.yaml?raw=true)
 
 Note the accessMode for this PVC is set to `ReadWriteMany` so the kubernetes allows mounting this PVC on multiple pods.
 
@@ -113,8 +109,6 @@ spec:
       claimName: px-shared-pvc
 ```
 
-[Download example](https://docs.portworx.com/k8s-samples/portworx-volume-shared-pod-1.yaml?raw=true)
-
 Starting pod-2
 
 ```text
@@ -140,8 +134,6 @@ spec:
     persistentVolumeClaim:
       claimName: px-shared-pvc
 ```
-
-[Download example](https://docs.portworx.com/k8s-samples/portworx-volume-shared-pod-2.yaml?raw=true)
 
 Verifying pods are running:
 
