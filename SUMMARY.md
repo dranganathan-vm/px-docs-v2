@@ -29,6 +29,8 @@
   * [Run Hyper Converged](kubernetes-storage-operations/run-hyper-converged.md)
   * [Configure Kubernetes Secrets](kubernetes-storage-operations/configure-kubernetes-secrets.md)
   * [Update Portworx Geography Info](kubernetes-storage-operations/update-portworx-geography-info.md)
+* [Upgrading with Kubernetes](kubernetes/README.md)
+  * [Migrating to OCI](kubernetes/migrating-to-oci.md)
 * Install with Other Orchestrators or Standalone
   * [Azure \(Container w/DCOS\)](install-with-other-orchestrators-or-standalone/azure-container-w-dcos.md)
   * [DC/OS](install-with-other-orchestrators-or-standalone/dc-os/README.md)
@@ -74,8 +76,6 @@
   * [REST API](reference/rest-api.md)
   * Upgrades
     * [Upgrading with DC/OS](reference/upgrades/dc-os.md)
-    * [Upgrading with Kubernetes](reference/upgrades/kubernetes/README.md)
-      * [Migrating to OCI](reference/upgrades/kubernetes/migrating-to-oci.md)
     * [Upgrading with Docker \(Standalone\)](reference/upgrades/upgrading-with-docker-standalone.md)
 * Key Management
   * [Portworx with AWS KMS](key-management/portworx-with-aws-kms.md)

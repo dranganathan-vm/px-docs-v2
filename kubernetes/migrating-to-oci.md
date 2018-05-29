@@ -1,6 +1,6 @@
 # Migrating to OCI
 
-This page describes the procedue to migrate your current Portworx installation to use OCI/runc containers.
+This page describes the procedure to migrate your current Portworx installation to use OCI/runc containers.
 
 ### Step 1: Get your current Portworx arguments {#step-1-get-your-current-portworx-arguments}
 

@@ -6,7 +6,9 @@ To set up the Azure Container w/DCOS to use Portworx, follow the steps below.
 
 The ACS Engine binary files are located [here](https://github.com/Azure/acs-engine/releases). To install the ACS Engine on Linux, run this command:
 
-`curl -L https://aka.ms/InstallAzureCli | bash`
+```text
+curl -L https://aka.ms/InstallAzureCli | bash
+```
 
 ### Install the Azure CLI
 

@@ -9,9 +9,17 @@ You are running Portworx as OCI if the Portworx daemonset image is _portworx/oci
 
 {% page-ref page="migrating-to-oci.md" %}
 
-To upgrade to the **1.3 stable** release, run the curl command: `curl -fsL https://install.portworx.com/upgrade | bash -s`
+To upgrade to the **1.3 stable** release, run the curl command:
 
-To upgrade to the **1.4 tech preview** release, run the curl command: `curl -fsL https://install.portworx.com/upgrade | bash -s -- -t 1.4.0-rc1`
+```text
+curl -fsL https://install.portworx.com/upgrade | bash -s
+```
+
+To upgrade to the **1.4 tech preview** release, run the curl command:
+
+```text
+curl -fsL https://install.portworx.com/upgrade | bash -s -- -t 1.4.0-rc1
+```
 
 This runs a script that will start a Kubernetes Job to perform the following operations:
 
