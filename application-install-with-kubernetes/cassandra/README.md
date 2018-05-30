@@ -504,7 +504,9 @@ kubectl exec cassandra-1 -- cqlsh -e 'select * from demodb.emp'
 
 **Node Failover**
 
-Decomissioning a kubernetes node deletes the node object form the APIServer. Before that you would want to decomission your Portworx node from the cluster. Follow the steps mentioned in [Decommision a Portworx node](https://docs.portworx.com/scheduler/kubernetes/k8s-node-decommission.html) Once done, delete the kubernetes node if it requires to be deleted permanently.
+Decomissioning a kubernetes node deletes the node object form the APIServer. Before that you would want to decomission your Portworx node from the cluster. Click on the link below and follow the steps:
+
+After following the steps, delete the kubernetes node if it requires to be deleted permanently.
 
 ```text
 kubectl delete node k8s-1
