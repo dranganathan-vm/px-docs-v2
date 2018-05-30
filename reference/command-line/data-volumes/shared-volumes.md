@@ -19,9 +19,10 @@ A typical pattern is for a single container to have one or more volumes. Convers
 To create a Portworx shared volume, use the `pxctl` command or `docker volume create`.
 
 ```text
-# pxctl volume create my_shared_vol --shared --size=5 --repl=3
+pxctl volume create my_shared_vol --shared --size=5 --repl=3
 Shared volume successfully created: 944424689751331159
-# pxctl volume list
+
+pxctl volume list
 ID			            NAME		        SIZE	   HA	  SHARED	STATUS
 944424689751331159	    my_shared_vol	    5.0 GiB	   3	  yes	    up - detached
 ```
@@ -31,7 +32,7 @@ Note the “SHARED” status of the volume, in the above output.
 You can also use `docker volume create` as
 
 ```text
-# docker volume create --driver pxd --opt shared=true --opt size=10G demovol
+docker volume create --driver pxd --opt shared=true --opt size=10G demovol
 ```
 
 ### Use shared volumes {#use-shared-volumes}

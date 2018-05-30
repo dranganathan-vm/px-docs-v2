@@ -9,7 +9,7 @@ Additional help on each command can be found via pxctl {command name} help
 **In Version 1.2.x**
 
 ```text
-# /opt/pwx/bin/pxctl volume --help
+/opt/pwx/bin/pxctl volume --help
 NAME:
    pxctl volume - Manage volumes
 
@@ -36,7 +36,7 @@ OPTIONS:
 **In Version 1.3 and higher**
 
 ```text
-# /opt/pwx/bin/pxctl volume help
+/opt/pwx/bin/pxctl volume help
 NAME:
    pxctl volume - Manage volumes
 
@@ -72,7 +72,7 @@ It has the following options available.
 **In Version 1.2.x**
 
 ```text
-# /opt/pwx/bin/pxctl volume create --help
+/opt/pwx/bin/pxctl volume create --help
 NAME:
    pxctl volume create - Create a volume
 
@@ -107,7 +107,7 @@ OPTIONS:
 **In Version 1.3 and higher**
 
 ```text
-# /opt/pwx/bin/pxctl volume create -h
+/opt/pwx/bin/pxctl volume create -h
 NAME:
    pxctl volume create - Create a volume
 USAGE:
@@ -212,7 +212,7 @@ sudo /opt/pwx/bin/pxctl volume create volFinGrp --group finance --enforce_cg
 Following is an example to specify snapshot schedules when creating a volume.
 
 ```text
-# /opt/pwx/bin/pxctl volume create *--daily 23:50,30 --periodic 60,24 --weekly sunday@10:10* vx1
+/opt/pwx/bin/pxctl volume create *--daily 23:50,30 --periodic 60,24 --weekly sunday@10:10* vx1
 Volume successfully created: 836228556646454877
 root@70-0-39-240:/home/ub# /opt/pwx/bin/pxctl v i vx1
 Volume    :  836228556646454877
@@ -296,7 +296,7 @@ Volume clitest1 successfully deleted
 `pxctl volume inspect` help show the additional information about the volume configuration at a much more detailed level
 
 ```text
-# /opt/pwx/bin/pxctl volume inspect clitest
+/opt/pwx/bin/pxctl volume inspect clitest
 Volume	:  970758537931791410
 	Name            	 :  clitest
 	Size            	 :  1.0 GiB
@@ -407,7 +407,7 @@ Using the `--shared` flag, the volume namespace sharing across multiple volumes 
 For e.g., for the volume clitest, here is the output of volume inpsect.
 
 ```text
-# /opt/pwx/bin/pxctl volume inspect clitest
+/opt/pwx/bin/pxctl volume inspect clitest
 Volume	:  970758537931791410
 	Name            	 :  clitest
 	Size            	 :  1.0 GiB

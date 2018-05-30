@@ -27,7 +27,7 @@ OPTIONS:
 Use `pxctl snap create` to make a new snapshot of a volume. A typical example looks like this:
 
 ```text
-# pxctl snap create --name mysnap --label color=blue,fabric=wool myvol
+pxctl snap create --name mysnap --label color=blue,fabric=wool myvol
 Volume successfully snapped: 1152602487227170184
 ```
 
@@ -59,9 +59,10 @@ The argument is the name or ID of the parent volume on which the snapshot is bas
 Each snapshot is a volume and can be used like any other volume. For instance, you can attach it and can create snapshots of it:
 
 ```text
-# pxctl host attach mysnap
+pxctl host attach mysnap
 Volume successfully attached at: /dev/pxd/pxd1152602487227170184
-# pxctl snap create --name mysnap_jr mysnap
+
+pxctl snap create --name mysnap_jr mysnap
 Volume successfully snapped: 1312421116276761727
 ```
 
@@ -86,7 +87,7 @@ OPTIONS:
 If you run this command with no options, you get a list of all snapshots, with information about their attributes:
 
 ```text
-# pxctl snap list
+pxctl snap list
 ID                   NAME       SIZE   HA  SHARED  STATUS
 1152602487227170184  mysnap     1 GiB  1   no      up - attached on 10.0.2.15
 1312421116276761727  mysnap_jr  1 GiB  1   no      up - detached
@@ -119,13 +120,13 @@ Interval-based snapshots are set with the `--snap_interval` option. As a special
 The snapshot schedule can be changed with the `pxctl volume snap-interval-update` command. It accepts the same scheduling arguments as the create command:
 
 ```text
-# pxctl volume snap-interval-update --daily @15:00 myvol
+pxctl volume snap-interval-update --daily @15:00 myvol
 ```
 
 If a schedule is set, `pxctl volume inspect` will display it:
 
 ```text
-# pxctl volume inspect tester
+pxctl volume inspect tester
 Volume    :  593988376247244600
     Name                 :  tester
     Size                 :  1.0 GiB

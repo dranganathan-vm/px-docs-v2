@@ -155,7 +155,7 @@ Here’s how you can check if your volume is full and then increase its size.
 1. Run the volume inspect command.This should tell you the capacity of the volume and how much is used.
 
    ```text
-   $ /opt/pwx/bin/pxctl volume inspect hdfs_volume
+   /opt/pwx/bin/pxctl volume inspect hdfs_volume
 
          Volume                   	:  658175664581050143
          Name        	             :  hdfs_volume
@@ -230,7 +230,7 @@ Once you have run the above command you should see the Hadoop-PX service availab
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes hadoop-px
+dcos package install --yes hadoop-px
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”.
@@ -266,7 +266,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the hadoop-px service in ACTIVE state with 13 running tasks
 
 ```text
-$ dcos service
+dcos service
 NAME                         HOST                    ACTIVE  TASKS  CPU    MEM    DISK  ID
 hadoop-px                 10.0.0.135                  True     13   9.0  32768.0  0.0   5c6438b2-1f63-4c23-b62a-ad0a7d354a91-0113
 marathon                  10.0.4.21                   True     1    1.0   1024.0  0.0   01d86b9c-ca2c-4c3c-9d9f-d3a3ef3e3911-0001

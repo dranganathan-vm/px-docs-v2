@@ -18,7 +18,7 @@ For this step you will need to login to a node which has the dcos cli installed 
 Run the following command to add the repository to your DCOS cluster:
 
 ```text
-$ dcos package repo add --index=0 portworx-zookeeper-aws https://universe-converter.mesosphere.com/transform?url=https://px-dcos-dev.s3.amazonaws.com/autodelete7d/portworx-zookeeper/20180108-191631-sIi4sgvQfmd1yaDY/stub-universe-portworx-zookeeper.json
+dcos package repo add --index=0 portworx-zookeeper-aws https://universe-converter.mesosphere.com/transform?url=https://px-dcos-dev.s3.amazonaws.com/autodelete7d/portworx-zookeeper/20180108-191631-sIi4sgvQfmd1yaDY/stub-universe-portworx-zookeeper.json
 ```
 
 Once you have run the above command you should see the `portworx-zookeeper` service available in your universe
@@ -30,7 +30,7 @@ Once you have run the above command you should see the `portworx-zookeeper` serv
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx-zookeeper
+dcos package install --yes portworx-zookeeper
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”. The default install will create PX volumes of size 2GB with 1 replica.
@@ -66,7 +66,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the `portworx-zookeeper` service in ACTIVE state with 3 running tasks, one for each Zookeeper node.
 
 ```text
-$ dcos service
+dcos service
 NAME                     HOST      ACTIVE  TASKS  CPU   MEM     DISK   ID
 marathon            192.168.65.90   True     2    2.0  2048.0   0.0    b69b8ce2-fe89-4688-850c-9a70438fc8f3-0000
 metronome           192.168.65.90   True     0    0.0   0.0     0.0    b69b8ce2-fe89-4688-850c-9a70438fc8f3-0001
@@ -79,13 +79,13 @@ portworx-zookeeper     a1.dcos      True     3    1.5  3072.0   0.0    b69b8ce2-
 From the DCOS client, install the new command for `portworx-zookeeper`
 
 ```text
-$ dcos package install portworx-zookeeper --cli
+dcos package install portworx-zookeeper --cli
 ```
 
 Find out all Zookeeper client endpoints
 
 ```text
-$ dcos portworx-zookeeper endpoints client-port
+dcos portworx-zookeeper endpoints client-port
 {
   "address": [
     "192.168.65.131:2182",

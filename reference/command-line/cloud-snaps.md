@@ -13,7 +13,7 @@ Also, to see how to configure cloud provider credentials, click the link below.
 **pxctl cloudsnap –help**
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap --help
+/opt/pwx/bin/pxctl cloudsnap --help
 NAME:
    pxctl cloudsnap - Backup and restore snapshots to/from cloud
 
@@ -40,14 +40,14 @@ OPTIONS:
 `pxctl cloudsnap backup` command is used to backup a single volume to the configured cloud provider through credential command line. If it will be the first backup for the volume a full backup of the volume is generated. If it is not the first backup, it only generates an incremental backup from the previous full/incremental backup. If a single cloud provider credential is created then there is no need to specify the credentials on the command line.
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap backup vol1
+/opt/pwx/bin/pxctl cloudsnap backup vol1
 Cloudsnap backup started successfully
 ```
 
 If multiple cloud providers credentials are created then need to specify the credential to use for backup on command line
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap backup vol1 --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff 
+/opt/pwx/bin/pxctl cloudsnap backup vol1 --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff 
 Cloudsnap backup started successfully
 ```
 
@@ -69,7 +69,7 @@ Note: All cloudsnap backups and restores can be monitored through CloudSnap stat
 `pxctl cloudsnap status` can be used to check the status of cloudsnap operations
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap status
+/opt/pwx/bin/pxctl cloudsnap status
 SOURCEVOLUME		   STATE		      BYTES-PROCESSED	TIME-ELAPSED		COMPLETED			            ERROR
 1040525385624900824	Restore-Done	11753581193	      8m32.231744596s	Wed, 05 Apr 2017 06:57:08 UTC
 1137394071301823388	Backup-Done	   11753581193	      1m46.023734966s	Wed, 05 Apr 2017 05:03:42 UTC
@@ -83,7 +83,7 @@ SOURCEVOLUME		   STATE		      BYTES-PROCESSED	TIME-ELAPSED		COMPLETED			        
 `pxctl cloudsnap list` is used to list all the cloud snapshots
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --all
+/opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --all
 SOURCEVOLUME 			CLOUD-SNAP-ID									CREATED-TIME				STATUS
 vol1			gossip12/181112018587037740-545317760526242886		Sun, 09 Apr 2017 14:35:28 UTC		Done
 ```
@@ -91,12 +91,12 @@ vol1			gossip12/181112018587037740-545317760526242886		Sun, 09 Apr 2017 14:35:28
 Filtering on cluster ID or volume ID is available and can be done as follows:
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --src vol1
+/opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --src vol1
 SOURCEVOLUME 		CLOUD-SNAP-ID					CREATED-TIME				STATUS
 vol1			1137394071301823388-283948499973931602		Wed, 05 Apr 2017 04:50:35 UTC		Done
 vol1			1137394071301823388-674319852060841900		Wed, 05 Apr 2017 05:01:56 UTC		Done
 
-# /opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --cluster cs25
+/opt/pwx/bin/pxctl cloudsnap list --cred-uuid ffffffff-ffff-ffff-1111-ffffffffffff --cluster cs25
 SOURCEVOLUME 		CLOUD-SNAP-ID					CREATED-TIME				STATUS
 vol1			1137394071301823388-283948499973931602		Wed, 05 Apr 2017 04:50:35 UTC		Done
 vol1			1137394071301823388-674319852060841900		Wed, 05 Apr 2017 05:01:56 UTC		Done
@@ -108,7 +108,7 @@ volshared1	13292162184271348-457364119636591866		Wed, 05 Apr 2017 22:35:16 UTC		
 `pxctl cloudsnap delete` can be used to delete cloudsnaps. This is not reversible and will cause the backups to be permanently deleted from the cloud, so use with care.
 
 ```text
-# /opt/pwx/bin/pxctl cloudsnap  delete --snap gossip12/181112018587037740-545317760526242886
+/opt/pwx/bin/pxctl cloudsnap  delete --snap gossip12/181112018587037740-545317760526242886
 Cloudsnap deleted successfully
 ```
 

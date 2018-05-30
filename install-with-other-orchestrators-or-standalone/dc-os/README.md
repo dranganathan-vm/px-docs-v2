@@ -15,7 +15,7 @@ Using [this AWS CloudFormation template](https://docs.portworx.com/scheduler/mes
 If you are moving from a Docker install or Portworx to an OCI install, please make sure that the Portworx service is stopped on all the agents before updating to the OCI install. To do this run the following command on all your private agents:
 
 ```text
-$ sudo systemctl stop portworx
+sudo systemctl stop portworx
 ```
 
 #### Deploy Portworx {#deploy-portworx}
@@ -29,7 +29,7 @@ The Portworx service is available in the DCOS universe, you can find it by typin
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx
+dcos package install --yes portworx
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”.

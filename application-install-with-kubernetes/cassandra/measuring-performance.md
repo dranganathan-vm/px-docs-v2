@@ -13,7 +13,7 @@ Below are the instructions to test and verify Cassandra’s Performance with PX 
 In each of the AWS instance launch PX container and specify the etcd IP e.g. `172.31.45.219` and disk volume e.g.`/dev/xvdb`
 
 ```text
-$ docker run --restart=always --name px -d --net=host      \
+docker run --restart=always --name px -d --net=host      \
              --privileged=true                             \
              -v /run/docker/plugins:/run/docker/plugins    \
              -v /var/lib/osd:/var/lib/osd:shared           \
@@ -30,13 +30,13 @@ $ docker run --restart=always --name px -d --net=host      \
 Once the PX cluster is created, create three PX volumes with `size=60GB` that is local to each node. On each of the AWS instance run the following `pxctl` command:
 
 ```text
-$ /opt/pwx/bin/pxctl volume create CVOL-`hostname` --size 60 --nodes LocalNode
+/opt/pwx/bin/pxctl volume create CVOL-`hostname` --size 60 --nodes LocalNode
 ```
 
 Verify the created PX volumes:
 
 ```text
-$ /opt/pwx/bin/pxctl volume list
+/opt/pwx/bin/pxctl volume list
 ID                      NAME                    SIZE    HA      SHARED  ENCRYPTED       IO_PRIORITY     SCALE   STATUS
 999260470129557090      CVOL-ip-172-31-32-188   60 GiB  1       no      no              LOW             1       up - detached
 973892635505817385      CVOL-ip-172-31-45-219   60 GiB  1       no      no              LOW             1       up - detached
@@ -48,9 +48,9 @@ Create Cassandra container\(s\) using the created PX volumes. In our test case; 
 Set IP addresse variables of the three nodes on each instance:
 
 ```text
-$ NODE_1_IP=172.31.32.188
-$ NODE_2_IP=172.31.45.219
-$ NODE_3_IP=172.31.47.121
+NODE_1_IP=172.31.32.188
+NODE_2_IP=172.31.45.219
+NODE_3_IP=172.31.47.121
 ```
 
 > **Note:**  
@@ -61,7 +61,7 @@ For each AWS instance do a docker run and launch the Cassandra latest version Do
 On Node 1:
 
 ```text
-$ docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
+docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
               -p 17000:17000 -p 7001:7001 -p 9042:9042 -p 9160:9160 -p 7199:7199       \
               -v /etc/cassandra:/etc/cassandra                                         \
               -v CVOL-`hostname`:/var/lib/cassandra                                    \
@@ -71,7 +71,7 @@ $ docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i
 On Node 2:
 
 ```text
-$ docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
+docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
               -e CASSANDRA_SEEDS=${NODE_1_IP}                                          \
               -p 17000:17000 -p 7001:7001 -p 9042:9042 -p 9160:9160 -p 7199:7199       \
               -v /etc/cassandra:/etc/cassandra                                         \ 
@@ -82,7 +82,7 @@ $ docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i
 On Node 3:
 
 ```text
-$ docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
+docker run  --name cass-`hostname` -e CASSANDRA_BROADCAST_ADDRESS=`hostname -i`      \
               -e CASSANDRA_SEEDS=${NODE_1_IP},${NODE_2_IP}                             \
               -p 17000:17000 -p 7001:7001 -p 9042:9042 -p 9160:9160 -p 7199:7199       \
               -v /etc/cassandra:/etc/cassandra                                         \
@@ -111,7 +111,7 @@ Run Cassandra stress `write` testing with 10K inserts into the target keyspace `
 On Node 1
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress write n=10000                 \
+docker exec -it cass-`hostname` cassandra-stress write n=10000                 \
   cl=quorum -mode native cql3 -rate threads=4 -schema keyspace="TestKEYSPACE01"  \
   "replication(factor=2)" -pop seq=1..10000 -log file=~/Test_10Kwrite_001.log    \
   -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
@@ -120,7 +120,7 @@ $ docker exec -it cass-`hostname` cassandra-stress write n=10000                
 On Node 2
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress write n=10000                  \
+docker exec -it cass-`hostname` cassandra-stress write n=10000                  \
   cl=quorum -mode native cql3 -rate threads=4 -schema keyspace="TestKEYSPACE01"   \
   "replication(factor=2)" -pop seq=10001..20000 -log file=~/Test_10Kwrite_002.log \ 
   -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
@@ -129,7 +129,7 @@ $ docker exec -it cass-`hostname` cassandra-stress write n=10000                
 On Node 3
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress write n=10000                   \
+docker exec -it cass-`hostname` cassandra-stress write n=10000                   \
   cl=quorum -mode native cql3 -rate threads\>=72 -schema keyspace="TestKEYSPACE01" \
   "replication(factor=2)" -pop seq=20001..30000 -log file=~/Test_10Kwrite_003.log  \
   -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
@@ -138,7 +138,7 @@ $ docker exec -it cass-`hostname` cassandra-stress write n=10000                
 The output of result on each node should be similar below:
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress write n=10000 cl=quorum -mode native cql3 -rate threads=4 -schema keyspace="TestKEYSPACE" "replication(factor=2)" -pop seq=1..10000 -log file=~/Test_10Kwrite_001.log -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
+docker exec -it cass-`hostname` cassandra-stress write n=10000 cl=quorum -mode native cql3 -rate threads=4 -schema keyspace="TestKEYSPACE" "replication(factor=2)" -pop seq=1..10000 -log file=~/Test_10Kwrite_001.log -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
       ******************** Stress Settings ********************
       Command:
       Type: write
@@ -262,7 +262,7 @@ If the above Cassandra test is OK and completed without any issue, the number of
 Below is an example to insert 10 million objects into the target keyspace with threads `>= 72`. When using threads `>=72`, Cassandra Stress will run several cycles in threads `72, 108, 162, 243, 364, 546 and 819`
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress write n=10000000                 \
+docker exec -it cass-`hostname` cassandra-stress write n=10000000                 \
   cl=quorum -mode native cql3 -rate threads\>=72 -schema keyspace="TestKEYSPACE01"  \
   "replication(factor=2)" -pop seq=1..10000000 -log file=~/Test_10Mwrite_001.log    \
   -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}
@@ -271,7 +271,7 @@ $ docker exec -it cass-`hostname` cassandra-stress write n=10000000             
 After a write test, you can do a mixed test which is write/read; however a write test must be done before any mixed test:
 
 ```text
-$ docker exec -it cass-`hostname` cassandra-stress mixed n=10000000                 \
+docker exec -it cass-`hostname` cassandra-stress mixed n=10000000                 \
   cl=quorum -mode native cql3 -rate threads\>=72 -schema keyspace="TestKEYSPACE01"  \
   "replication(factor=2)" -pop seq=1..10000000 -log file=~/Test_10Mmixed_001.log    \
   -node ${NODE_1_IP},${NODE_2_IP},${NODE_3_IP}

@@ -13,7 +13,7 @@ The Portworx image to be used on each node is specified by the framework variabl
 Once the image name has been updated, the service file for Portworx needs to be updated on each node followed by a restart of the service. This can be done by running the `upgrade-portworx` plan. This will perform a rolling upgrade of Portworx so as not to cause an outage.
 
 ```text
-$ dcos portworx plan start upgrade-portworx
+dcos portworx plan start upgrade-portworx
 {
   "message": "Received cmd: start"
 }
@@ -22,7 +22,7 @@ $ dcos portworx plan start upgrade-portworx
 Now wait for the upgrade tasks to go to COMPLETE state on all the agents
 
 ```text
-$ dcos portworx plan status upgrade-portworx
+dcos portworx plan status upgrade-portworx
 upgrade-portworx (COMPLETE)
 └─ upgrade (COMPLETE)
    ├─ portworx-0:[upgrade] (COMPLETE)

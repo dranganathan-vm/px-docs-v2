@@ -123,13 +123,15 @@ Now let’s deploy PostgreSQL using following commands:
 ### Validate StorageClass, PersistentVolumeClaim and PostgreSQL Deployment
 
 ```text
-ubuntu@node1:~$ kubectl get sc
+kubectl get sc
 NAME             PROVISIONER                     AGE
 px-postgres-sc   kubernetes.io/portworx-volume   1h
-ubuntu@node1:~$ kubectl get pvc
+
+kubectl get pvc
 NAME            STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     AGE
 postgres-data   Bound     pvc-60e43292-06e3-11e8-96b4-022185d04910   1Gi        RWO            px-postgres-sc   1h
-ubuntu@node1:~$ kubectl get pod
+
+kubectl get pod
 NAME                        READY     STATUS    RESTARTS   AGE
 postgres-86cb8587c4-l9r48   1/1       Running   0          1h
 ```
@@ -139,10 +141,11 @@ postgres-86cb8587c4-l9r48   1/1       Running   0          1h
 To access via docker exec:
 
 ```text
-ubuntu@node1:~$ kubectl get pod
+kubectl get pod
 NAME                              READY     STATUS    RESTARTS   AGE
 postgres-5d8767bb94-wdp2d         1/1       Running   0          1m
-ubuntu@node1:~$ kubectl exec -it postgres-5d8767bb94-wdp2d bash
+
+kubectl exec -it postgres-5d8767bb94-wdp2d bash
 root@postgres-86cb8587c4-l9r48:/#
 root@postgres-86cb8587c4-l9r48:/# psql
 psql (9.5.10)

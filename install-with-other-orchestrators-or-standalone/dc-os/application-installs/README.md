@@ -44,7 +44,7 @@ The frameworks help coordinate application level volume operations. An example i
 Adding any of the frameworks available from Portworx is simple. Use the `dcos` CLI to add these external frameworks. For example, to add the Cassandra framework:
 
 ```text
-$ dcos package repo add --index=0 cassandra-px-aws https://px-dcos.s3.amazonaws.com/v1/cassandra-px/cassandra-px.zip
+dcos package repo add --index=0 cassandra-px-aws https://px-dcos.s3.amazonaws.com/v1/cassandra-px/cassandra-px.zip
 ```
 
 Please refer to the individual frameworks sections in the navigation bar for more details on a specific framework.

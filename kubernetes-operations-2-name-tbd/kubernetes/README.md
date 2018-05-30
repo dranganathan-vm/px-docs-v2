@@ -61,7 +61,7 @@ curl -fsL https://install.portworx.com/upgrade | bash -s -- --scaledownsharedapp
 To get more information about the status of Portworx daemonset across the nodes, run:
 
 ```text
-$ kubectl get pods -o wide -n kube-system -l name=portworx
+kubectl get pods -o wide -n kube-system -l name=portworx
 NAME             READY   STATUS              RESTARTS   AGE   IP              NODE
 portworx-9njsl   1/1     Running             0          16d   192.168.56.73   minion4
 portworx-fxjgw   1/1     Running             0          16d   192.168.56.74   minion5
@@ -82,8 +82,8 @@ As we can see in the example output above:
 One can run the following command to inspect the Portworx cluster:
 
 ```text
-$ PX_POD=$(kubectl get pods -n kube-system -l name=portworx -o jsonpath='{.items[0].metadata.name}')
-$ kubectl exec -it $PX_POD -n kube-system /opt/pwx/bin/pxctl cluster list
+PX_POD=$(kubectl get pods -n kube-system -l name=portworx -o jsonpath='{.items[0].metadata.name}')
+kubectl exec -it $PX_POD -n kube-system /opt/pwx/bin/pxctl cluster list
 
 [...]
 Nodes in the cluster:

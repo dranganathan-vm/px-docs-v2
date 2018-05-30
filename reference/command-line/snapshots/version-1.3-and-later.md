@@ -7,7 +7,7 @@ Snapshots are efficient point-in-time read-only copies of volumes. Snapshots cre
 Snapshots are managed with the `pxctl volume snapshot` command.
 
 ```text
-# pxctl volume snapshot
+pxctl volume snapshot
 NAME:
    pxctl volume snapshot - Manage volume snapshots
 
@@ -26,7 +26,7 @@ OPTIONS:
 To create a user snaphsot for a volume , Use `pxctl snapshot create` command.
 
 ```text
-# pxctl volume snapshot create --name mysnap --label color=blue,fabric=wool myvol
+pxctl volume snapshot create --name mysnap --label color=blue,fabric=wool myvol
 Volume snap successful: 234835613696329810
 ```
 
@@ -58,7 +58,7 @@ OPTIONS:
 User created snapshots can be listed using one of the following ways
 
 ```text
-# pxctl volume list --all
+pxctl volume list --all
 ID          NAME                                    SIZE    HA  SHARED  ENCRYPTED   COMPRESSED  IO_PRIORITY SCALE   STATUS
 234835613696329810  mysnap                                  1 GiB   1   no  no      no      LOW     1   up - detached
 1125771388930868153 myvol                                   1 GiB   1   no  no      no      LOW     1   up - detached
@@ -67,7 +67,7 @@ ID          NAME                                    SIZE    HA  SHARED  ENCRYPTE
 \(or\)
 
 ```text
-# pxctl volume list --snapshot
+pxctl volume list --snapshot
 ID          NAME                                    SIZE    HA  SHARED  ENCRYPTED   COMPRESSED  IO_PRIORITY SCALE   STATUS
 234835613696329810  mysnap                                  1 GiB   1   no  no      no      LOW     1   up - detached
 ```
@@ -75,7 +75,7 @@ ID          NAME                                    SIZE    HA  SHARED  ENCRYPTE
 All scheduled snapshots can be listed using –snapshot-schedule option.
 
 ```text
-# pxctl volume list --snapshot-schedule
+pxctl volume list --snapshot-schedule
 ID          NAME                                    SIZE    HA  SHARED  ENCRYPTED   COMPRESSED  IO_PRIORITYSCALE    STATUS
 423119103642927058  myvol_periodic_2018_Feb_26_21_12                    1 GiB   1   no  no      no      LOW     1up - detached
 ```
@@ -83,11 +83,11 @@ ID          NAME                                    SIZE    HA  SHARED  ENCRYPTE
 You can filter the results with the –parent and –label options. For instance, –parent myvol will show only snapshots whose parent is myvol, i.e., mysnap in this example Giving labels restricts the list to snapshots that have all of the specified labels. For instance, –label fabric=wool would again show mysnap but –label fabric=cotton wo
 
 ```text
-# pxctl volume list --parent myvol --snapshot
+pxctl volume list --parent myvol --snapshot
 ID          NAME    SIZE    HA  SHARED  ENCRYPTED   COMPRESSED  IO_PRIORITY SCALE   STATUS
 234835613696329810  mysnap  1 GiB   1   no  no      no      LOW     1   up - detached
 
-# pxctl volume list --parent myvol --snapshot --label fabric=wool
+pxctl volume list --parent myvol --snapshot --label fabric=wool
 ID          NAME    SIZE    HA  SHARED  ENCRYPTED   COMPRESSED  IO_PRIORITY SCALE   STATUS
 234835613696329810  mysnap  1 GiB   1   no  no      no      LOW     1   up - detached
 ```
@@ -108,7 +108,7 @@ USAGE:
 `pxctl volume delete` deletes snapshots. The argument is the name or ID of the snapshot that you wish to delete. The snapshot must be detached in order to delete it.
 
 ```text
-# pxctl volume delete mysnap
+pxctl volume delete mysnap
 Delete volume 'mysnap', proceed ? (Y/N): y
 Volume mysnap successfully deleted.
 ```
@@ -134,15 +134,15 @@ OPTIONS:
 The below example creates a policy `p1` with periodic and weekly schedules.
 
 ```text
-# pxctl sched-policy create --periodic 60,5 --weekly sunday@12:00,4 p1
+pxctl sched-policy create --periodic 60,5 --weekly sunday@12:00,4 p1
 ```
 
 Schedule policies can be addded to the volume either during volume create or after volume create.
 
 ```text
-# pxctl volume create --policy p1 vol1
+pxctl volume create --policy p1 vol1
 (or)
-# pxctl volume snap-interval-update --policy p1 vol1
+pxctl volume snap-interval-update --policy p1 vol1
 ```
 
 #### Listing Schedule Policies {#listing-schedule-policies}
@@ -232,7 +232,7 @@ OPTIONS:
 In the below example, the old snapshot schedule is replaced with 5 daily snapshot triggering at 15:00pm
 
 ```text
-# pxctl volume snap-interval-update --daily @15:00,5 myvol
+pxctl volume snap-interval-update --daily @15:00,5 myvol
 ```
 
 #### Disabling Scheduled Snapshots {#disabling-scheduled-snapshots}
@@ -248,7 +248,7 @@ pxctl volume snap-interval-update --periodic 0 myvol
 If a schedule is set on a volume and to view that schedule use `pxctl volume inspect` command.
 
 ```text
-# pxctl volume inspect myvol
+pxctl volume inspect myvol
 Volume	:  1125771388930868153
 	Name            	 :  myvol
 	Size            	 :  1.0 GiB

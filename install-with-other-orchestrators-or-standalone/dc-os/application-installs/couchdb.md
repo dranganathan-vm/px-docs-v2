@@ -18,7 +18,8 @@ For this step you will need to login to a node which has the dcos cli installed 
 Run the following command to add the repository to your DCOS cluster:
 
 ```text
-$ dcos package repo add --index=0 portworx-couchdb-aws https://universe-converter.mesosphere.com/transform?url=https://px-dcos-dev.s3.amazonaws.com/autodelete7d/portworx-couchdb/20180108-191814-r2aJF3ibkK2ltugj/stub-universe-portworx-couchdb.json
+
+dcos package repo add --index=0 portworx-couchdb-aws https://universe-converter.mesosphere.com/transform?url=https://px-dcos-dev.s3.amazonaws.com/autodelete7d/portworx-couchdb/20180108-191814-r2aJF3ibkK2ltugj/stub-universe-portworx-couchdb.json
 ```
 
 Once you have run the above command you should see the `portworx-couchdb` service available in your universe
@@ -30,7 +31,7 @@ Once you have run the above command you should see the `portworx-couchdb` servic
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx-couchdb
+dcos package install --yes portworx-couchdb
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”. The default install will create PX volumes of size 10GB with 1 replica.
@@ -66,7 +67,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the `portworx-couchdb` service in ACTIVE state with 3 running tasks, one for each CouchDB node.
 
 ```text
-$ dcos service
+dcos service
 NAME                   HOST      ACTIVE  TASKS  CPU   MEM     DISK   ID
 marathon          192.168.65.90   True     2    1.5  2048.0   0.0    b69b8ce2-fe89-4688-850c-9a70438fc8f3-0000
 metronome         192.168.65.90   True     0    0.0   0.0     0.0    b69b8ce2-fe89-4688-850c-9a70438fc8f3-0001
@@ -79,13 +80,13 @@ portworx-couchdb     a1.dcos      True     3    1.5  6144.0   0.0    b69b8ce2-fe
 From the DCOS client, install the new command for `portworx-couchdb`
 
 ```text
-$ dcos package install portworx-couchdb --cli
+dcos package install portworx-couchdb --cli
 ```
 
 Find out all CouchDB client endpoints
 
 ```text
-$ dcos portworx-couchdb endpoints cluster-port
+dcos portworx-couchdb endpoints cluster-port
 {
   "address": [
     "192.168.65.131:5984",
@@ -103,13 +104,13 @@ $ dcos portworx-couchdb endpoints cluster-port
 Connect to the master node to access the CouchDB service
 
 ```text
-$ dcos node ssh --master-proxy --leader
+dcos node ssh --master-proxy --leader
 ```
 
 From the DCOS master node, run the CouchDB REST API to any of the nodes on port `5984`. The default credentials are `admin:password` for accessing the REST APIs. A json output of the members in the CouchDB cluster from one of the nodes is shown below.
 
 ```text
-$ curl -s http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/_membership | python -m json.tool
+curl -s http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/_membership | python -m json.tool
 {
     "all_nodes": [
         "couchdb@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory",
@@ -127,12 +128,12 @@ $ curl -s http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.t
 To verify the CouchDB cluster we try to create a new database `testdb` and add a simple document to it.
 
 ```text
-$ curl -s -X PUT http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb -d {} | python -m json.tool
+curl -s -X PUT http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb -d {} | python -m json.tool
 {
     "ok": true
 }
 
-$ curl -s -X PUT http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb/001 -d '{"name":"Alice"}' | python -m json.tool
+curl -s -X PUT http://admin:password@couchdb-0-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb/001 -d '{"name":"Alice"}' | python -m json.tool
 {
     "id": "001",
     "ok": true,
@@ -143,7 +144,7 @@ $ curl -s -X PUT http://admin:password@couchdb-0-install.portworx-couchdb.autoip
 Verify the inserted document
 
 ```text
-$ curl -s http://admin:password@couchdb-1-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb/001 | python -m json.tool
+curl -s http://admin:password@couchdb-1-install.portworx-couchdb.autoip.dcos.thisdcos.directory:5984/testdb/001 | python -m json.tool
 {
     "_id": "001",
     "_rev": "1-4cb726bf80cfbb1457e6cce338834b1f",

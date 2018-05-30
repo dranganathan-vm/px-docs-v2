@@ -9,7 +9,7 @@ The Portworx-Cassandra service can be found in the DC/OS catalog:
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx-cassandra
+dcos package install --yes portworx-cassandra
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”. The default install will create PX volumes of size 5GB with 1 replica.
@@ -45,7 +45,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the portworx-cassandra service in ACTIVE state with 3 running tasks, one for each cassandra node.
 
 ```text
- $ dcos service
+dcos service
 NAME                            HOST                    ACTIVE  TASKS  CPU    MEM    DISK  ID
 portworx-cassandra           10.0.0.179                  True     3    1.5  12288.0  0.0   5c6438b2-1f63-4c23-b62a-ad0a7d354a91-0115
 marathon                     10.0.4.21                   True     1    1.0   1024.0  0.0   01d86b9c-ca2c-4c3c-9d9f-d3a3ef3e3911-0001

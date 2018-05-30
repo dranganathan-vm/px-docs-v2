@@ -22,7 +22,7 @@ The Portworx-ElasticSearch service can be found in the DC/OS catalog:
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx-elastic
+dcos package install --yes portworx-elastic
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”.
@@ -50,7 +50,7 @@ Monitor the DCOS service screen untill all `9 + 1` tasks are completed.
 From the DCOS workstation, verify the service, look for `portworx-elastic`
 
 ```text
- $ dcos service
+ dcos service
  NAME                        HOST             ACTIVE  TASKS  CPU     MEM      DISK   ID
  portworx-elastic ip-10-0-1-194.ec2.internal   True     9    7.1   19556.0    0.0    41474f9b-6b81-44ba-ad2c-184f71efbb26-0003
  etcd             ip-10-0-2-56.ec2.internal    True     3    3.3    6240.0  12288.0  41474f9b-6b81-44ba-ad2c-184f71efbb26-0002
@@ -61,7 +61,7 @@ From the DCOS workstation, verify the service, look for `portworx-elastic`
 From the DCOS workstation, verify the task; it will show `9` tasks.
 
 ```text
-  $ dcos task |grep -iv etcd |grep -iv px
+  dcos task |grep -iv etcd |grep -iv px
   NAME                HOST        USER  STATE  ID
   coordinator-0-node  10.0.0.236  root    R    coordinator-0-node__1287a918-20a1-4c1d-a008-3426ebb4e229
   data-0-node         10.0.2.96   root    R    data-0-node__f7e584a7-1684-4ce9-80b8-2b112e02aa02
@@ -88,7 +88,7 @@ When the last elasticsearch component with ID `portworx-elastic.XXXX` that is th
 The PX volumes for all elasticsearch task components are automatically created, and you can check that from one of the mesos private agent node
 
 ```text
-$ dcos node ssh --master-proxy --mesos-id=41474f9b-6b81-44ba-ad2c-184f71efbb26-S1 '/opt/pwx/bin/pxctl v l'
+dcos node ssh --master-proxy --mesos-id=41474f9b-6b81-44ba-ad2c-184f71efbb26-S1 '/opt/pwx/bin/pxctl v l'
   Running `ssh -A -t core@34.203.197.47 ssh -A -t core@10.0.0.236 /opt/pwx/bin/pxctl v l`
   ID                      NAME                    SIZE    HA      SHARED  ENCRYPTED       IO_PRIORITY     SCALE   STATUS
   471143287909897714      CoordinatorNodeVolume-0 1 GiB   1       no      no              LOW             0       up - attached on 10.0.0.236 
@@ -106,7 +106,7 @@ $ dcos node ssh --master-proxy --mesos-id=41474f9b-6b81-44ba-ad2c-184f71efbb26-S
 Find the elastic search coordinator endpoint from DCOS workstation
 
 ```text
- $ dcos portworx-elastic endpoints coordinator
+ dcos portworx-elastic endpoints coordinator
  {
     "address": [
     "10.0.0.236:1029",
@@ -123,13 +123,13 @@ Find the elastic search coordinator endpoint from DCOS workstation
 SSH to the DCOS master node; from the DCOS workstation use `dcos node ssh` command
 
 ```text
-$ dcos node ssh --master-proxy --leader
+dcos node ssh --master-proxy --leader
 ```
 
 From the DCOS master node, run the Elasticsearch REST API to the coordinator address at port 9200. The default credential is `elastic:changeme` for the coordinator. A json output from coordinator node is shown below by accessing the coordinator port `9200`.
 
 ```text
-$ curl -s -u elastic:changeme http://coordinator.portworx-elastic.l4lb.thisdcos.directory:9200
+curl -s -u elastic:changeme http://coordinator.portworx-elastic.l4lb.thisdcos.directory:9200
  {
     "name" : "coordinator-0-node",
     "cluster_name" : "elastic",
@@ -148,7 +148,7 @@ $ curl -s -u elastic:changeme http://coordinator.portworx-elastic.l4lb.thisdcos.
 Loading sample data in REST API from DCOS master node. Below showing an example of inserting a json document.
 
 ```text
- $ curl -s -u elastic:changeme -XPUT 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/2' -d '
+ curl -s -u elastic:changeme -XPUT 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/2' -d '
    {
      "title": "test book 1",
      "author": "bok hun",
@@ -161,7 +161,7 @@ Loading sample data in REST API from DCOS master node. Below showing an example 
 Verify the inserted document
 
 ```text
- $ curl -s -u elastic:changeme -XGET 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/2?pretty'
+ curl -s -u elastic:changeme -XGET 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/2?pretty'
    {
      "_index" : "books",
      "_type" : "book",
@@ -181,7 +181,7 @@ Verify the inserted document
 Repeat inserting 4 more sample documents, then issue a search query to look for string “java” in the entered document.
 
 ```text
- $ curl -s -u elastic:changeme -XPOST 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/_search' '
+ curl -s -u elastic:changeme -XPOST 'coordinator.portworx-elastic.l4lb.thisdcos.directory:9200/books/book/_search' '
   {
      "query" :
      {

@@ -15,7 +15,7 @@ Portworx can integrate with DC/OS Secrets to store your encryption keys/secrets 
 To access secrets, Portworx needs credentials of a user. This user should have permissions to access the secrets under a base secrets path. For instance, you can grant permissions to a user to access secrets under `pwx/secrets` base path, using DC/OS enterprise cli:
 
 ```text
-# dcos security org users grant <username> dcos:secrets:default:pwx/secrets/* full
+dcos security org users grant <username> dcos:secrets:default:pwx/secrets/* full
 ```
 
 **Enabling Secrets in Portworx**
@@ -50,7 +50,7 @@ Add the following `secret_type` and `cluster_secret_key` fields in the `secret` 
 You need to restart Portworx for the _config.json_ to take effect:
 
 ```text
-# sudo systemctl restart portworx
+sudo systemctl restart portworx
 ```
 
 #### Key generation with DC/OS {#key-generation-with-dcos}
@@ -64,7 +64,7 @@ The following sections describe the key generation process with Portworx and DC/
 Create a secret in DC/OS using the enterprise cli:
 
 ```text
-# dcos security secrets create --value=<secret-value> pwx/secrets/cluster-wide-secret-key
+dcos security secrets create --value=<secret-value> pwx/secrets/cluster-wide-secret-key
 ```
 
 For more details on ways to create Secrets in DC/OS refer [DC/OS documentaion](https://docs.mesosphere.com/1.11/security/ent/secrets/create-secrets)
@@ -72,7 +72,7 @@ For more details on ways to create Secrets in DC/OS refer [DC/OS documentaion](h
 A cluster wide secret key is a common key that can be used to encrypt all your volumes. You can set the cluster secret key using the following command:
 
 ```text
-# /opt/pwx/bin/pxctl secrets set-cluster-key \
+/opt/pwx/bin/pxctl secrets set-cluster-key \
   --secret pwx/secrets/cluster-wide-secret-key
 Successfully set cluster secret key
 ```
@@ -84,7 +84,7 @@ This command needs to be run just once for the cluster. If you have added the cl
 If you do not wish to pass the DC/OS credentials through the framework, you can authenticate Portworx with DC/OS Secrets using Portworx cli. Run the following command:
 
 ```text
-# /opt/pwx/bin/pxctl secrets dcos login \
+/opt/pwx/bin/pxctl secrets dcos login \
   --username <dcos-username> \
   --password <dcos-password> \
   --base-path <optional-base-path>

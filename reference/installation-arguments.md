@@ -65,7 +65,7 @@ NOTE: Setting environment variables can be done using the `-e` option, during [P
 
 ```text
 # Example PX-OCI config with extra "PX_ENABLE_CACHE_FLUSH" environment variable
-$ sudo /opt/pwx/bin/px-runc install -e PX_ENABLE_CACHE_FLUSH=yes \
+sudo /opt/pwx/bin/px-runc install -e PX_ENABLE_CACHE_FLUSH=yes \
     -c MY_CLUSTER_ID -k etcd://myetc.company.com:2379 -s /dev/xvdb
 ```
 

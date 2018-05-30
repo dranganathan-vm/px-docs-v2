@@ -19,9 +19,10 @@ Cluster wide secret key is basically a key value pair where the value part is th
 **Important: Make sure the cluster wide secret key is set when you are setting up Portworx with one of the supported secret endpoints**
 
 ```text
-# /opt/pwx/bin/pxctl volume create --secure --size 10 encrypted_volume
+/opt/pwx/bin/pxctl volume create --secure --size 10 encrypted_volume
 Volume successfully created: 822124500500459627
-# /opt/pwx/bin/pxctl volume list
+
+/opt/pwx/bin/pxctl volume list
 ID	      	     		NAME		SIZE	HA SHARED	ENCRYPTED	IO_PRIORITY	SCALE	STATUS
 822124500500459627	 encrypted_volume	10 GiB	1    no yes		LOW		1	up - detached
 ```
@@ -29,9 +30,10 @@ ID	      	     		NAME		SIZE	HA SHARED	ENCRYPTED	IO_PRIORITY	SCALE	STATUS
 You can attach and mount the encrypted volume
 
 ```text
-# /opt/pwx/bin/pxctl host attach encrypted_volume
+/opt/pwx/bin/pxctl host attach encrypted_volume
 Volume successfully attached at: /dev/mapper/pxd-enc822124500500459627
-# /opt/pwx/bin/pxctl host mount encrypted_volume /mnt
+
+/opt/pwx/bin/pxctl host mount encrypted_volume /mnt
 Volume encrypted_volume successfully mounted at /mnt
 ```
 
@@ -42,9 +44,10 @@ We do not need to specify a secret key during create or attach of a volume as it
 You can encrypt volumes using different keys instead of the cluster wide secret key. However you need to specify the key for every create and attach commands.
 
 ```text
-# /opt/pwx/bin/pxctl volume create --secure --secret_key key1 enc_vol
+/opt/pwx/bin/pxctl volume create --secure --secret_key key1 enc_vol
 Volume successfully created: 374663852714325215
-# /opt/pwx/bin/pxctl host attach --secret key1 enc_vol
+
+/opt/pwx/bin/pxctl host attach --secret key1 enc_vol
 Volume successfully attached at: /dev/mapper/pxd-enc374663852714325215
 ```
 

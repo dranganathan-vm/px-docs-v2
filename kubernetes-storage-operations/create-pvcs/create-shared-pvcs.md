@@ -15,7 +15,7 @@ Shared volumes are useful when you want multiple PODs to access the same PVC \(v
 Create the storageclass:
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-shared-sc.yaml
+kubectl create -f examples/volumes/portworx/portworx-shared-sc.yaml
 ```
 
 Example:
@@ -34,7 +34,7 @@ parameters:
 Note the `shared` field in the list of parameters is set to true. Verifying storage class is created:
 
 ```text
-# kubectl describe storageclass px-shared-sc
+kubectl describe storageclass px-shared-sc
 Name:	  	   px-shared-sc
 IsDefaultClass:	   No
 Annotations:	   <none>
@@ -48,7 +48,7 @@ Events:			<none>
 Creating the persistent volume claim:
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-volume-shared-pvc.yaml
+kubectl create -f examples/volumes/portworx/portworx-volume-shared-pvc.yaml
 ```
 
 Example:
@@ -73,7 +73,7 @@ Note the accessMode for this PVC is set to `ReadWriteMany` so the kubernetes all
 Verifying persistent volume claim is created:
 
 ```text
-# kubectl get pvc
+kubectl get pvc
 NAME            STATUS    VOLUME                                   CAPACITY   ACCESSMODES   STORAGECLASS   AGE
 px-shared-pvc   Bound     pvc-a38996b3-76e9-11e7-9d47-080027b25cdf 10Gi       RWX           px-shared-sc   12m
 
@@ -86,7 +86,7 @@ We will start two pods which use the same shared volume.
 Starting pod-1
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-volume-shared-pod-1.yaml
+kubectl create -f examples/volumes/portworx/portworx-volume-shared-pod-1.yaml
 ```
 
 Example:
@@ -112,7 +112,7 @@ spec:
 Starting pod-2
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-volume-shared-pod-2.yaml
+kubectl create -f examples/volumes/portworx/portworx-volume-shared-pod-2.yaml
 ```
 
 Example:
@@ -138,7 +138,7 @@ spec:
 Verifying pods are running:
 
 ```text
-# kubectl get pods
+kubectl get pods
 NAME      READY     STATUS    RESTARTS   AGE
 pod1      1/1       Running   0          2m
 pod2      1/1       Running   0          1m

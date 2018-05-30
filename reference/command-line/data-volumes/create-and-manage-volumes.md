@@ -3,7 +3,7 @@
 To create and manage volumes, use `pxctl volume`. You can use the created volumes directly with Docker with the `-v` option.
 
 ```text
-# /opt/pwx/bin/pxctl volume help
+/opt/pwx/bin/pxctl volume help
 NAME:
    pxctl volume - Manage volumes
 
@@ -46,7 +46,7 @@ A volume can be created before use by its container or by the container directly
 Example of creating a volume through `pxctl`, where the volume ID is returned:
 
 ```text
-# pxctl volume create foobar
+pxctl volume create foobar
 3903386035533561360
 ```
 
@@ -65,7 +65,7 @@ Set policies on a volume through the options parameter. These options can also b
 Show the available options through the –help command, as shown below:
 
 ```text
-# /opt/pwx/bin/pxctl volume create -h
+/opt/pwx/bin/pxctl volume create -h
 NAME:
    pxctl volume create - Create a volume
 USAGE:
@@ -103,7 +103,7 @@ OPTIONS:
 All `docker volume` commands are reflected into Portworx storage. For example, a `docker volume create`command provisions a storage volume in a Portworx storage cluster.
 
 ```text
-# docker volume create -d pxd --name <volume_name>
+docker volume create -d pxd --name <volume_name>
 ```
 
 As part of the `docker volume` command, you can add optional parameters through the `--opt` flag. The option parameters are the same, whether you use Portworx storage through the Docker volume or the `pxctl`commands.
@@ -111,7 +111,7 @@ As part of the `docker volume` command, you can add optional parameters through 
 Example of options for selecting the container’s filesystem and volume size:
 
 ```text
-# docker volume create -d pxd --name <volume_name> --opt fs=ext4 --opt size=10G
+docker volume create -d pxd --name <volume_name> --opt fs=ext4 --opt size=10G
 ```
 
 ### Inline volume spec {#inline-volume-spec}
@@ -121,13 +121,13 @@ PX supports passing the volume spec inline along with the volume name. This is u
 For example, a PX inline spec can be specified as the following:
 
 ```text
-# docker volume create -d pxd io_priority=high,size=10G,repl=3,snap_schedule="periodic=60#4;daily=12:00#3",name=demovolume
+docker volume create -d pxd io_priority=high,size=10G,repl=3,snap_schedule="periodic=60#4;daily=12:00#3",name=demovolume
 ```
 
 This is useful when you need to create a volume dynamically while using docker run. For example, the following command will create a volume and launch the container dynamically:
 
 ```text
-# docker run --volume-driver pxd -it -v io_priority=high,size=10G,repl=3,snap_schedule="periodic=60#4;daily=12:00#3",name=demovolume:/data busybox sh
+docker run --volume-driver pxd -it -v io_priority=high,size=10G,repl=3,snap_schedule="periodic=60#4;daily=12:00#3",name=demovolume:/data busybox sh
 ```
 
 The above command will create a volume called demovolume with an initial size of 10G, HA factor of 3, snap scheudle with periodic and daily snapshot creation and a IO priority level of high and start the busybox container.
@@ -170,7 +170,7 @@ To use Portworx volumes across nodes and multiple containers, click the link bel
 Volumes can be inspected for their settings and usage using the `pxctl volume inspect` sub menu.
 
 ```text
-# /opt/pwx/bin/pxctl volume inspect clitest
+/opt/pwx/bin/pxctl volume inspect clitest
 Volume	:  970758537931791410
 	Name            	 :  clitest
 	Size            	 :  1.0 GiB
@@ -200,7 +200,7 @@ To inspect the volume in `json` format, use the `-j` flag. Following is a sample
 Following is a sample output of the json volume inspect.
 
 ```text
-# /opt/pwx/bin/pxctl -j v i 486256711004992211
+/opt/pwx/bin/pxctl -j v i 486256711004992211
 [{
  "id": "486256711004992211",
  "source": {
@@ -296,7 +296,7 @@ You can take snapshots of PX volumes. Snapshots are thin and do not take additio
 **PX version 1.3 and higher**
 
 ```text
-# pxctl volume snapshot
+pxctl volume snapshot
 NAME:
    pxctl volume snapshot - Manage volume snapshots
 
@@ -315,7 +315,7 @@ Snapshots are read-only. To restore a volume from a snapshot, use the `pxctl vol
 **PX version 1.2**
 
 ```text
-# pxctl snap --help
+pxctl snap --help
 NAME:
    pxctl snap - Manage volume snapshots
 
@@ -354,7 +354,7 @@ OPTIONS:
 In the below example, `myvol_clone` is the clone from the parent volume `myvol`
 
 ```text
-# pxctl volume clone -name myvol_clone myvol
+pxctl volume clone -name myvol_clone myvol
 Volume clone successful: 55898055774694370
 ```
 
@@ -378,7 +378,7 @@ OPTIONS:
 In the below example parent volume `myvol` is restored from its snapshot `mysnap`. Make sure volume is detached in order to restore from the snapshot.
 
 ```text
-# pxctl volume restore --snapshot mysnap myvol
+pxctl volume restore --snapshot mysnap myvol
 Successfully started restoring volume myvol from mysnap.
 ```
 

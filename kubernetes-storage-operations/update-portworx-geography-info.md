@@ -15,7 +15,7 @@ Using kubernetes node labels Portworx nodes can be informed about the rack on wh
 Before updating kubernetes node labels double check the permissions listed on Portworx’s ClusterRole `node-get-put-list-role`:
 
 ```text
-$ kubectl describe clusterrole node-get-put-list-role
+kubectl describe clusterrole node-get-put-list-role
 Name:                node-get-put-list-role
 Labels:                <none>
 Annotations:        <none>
@@ -29,7 +29,7 @@ PolicyRule:
 As seen above the permissions on the node object are \[get update list\]. In order for Portworx nodes to dynamically update its rack information from node labels it needs an additional `watch` permission. Update the ClusterRole using
 
 ```text
-$ kubectl edit clusterrole node-get-put-list-role
+kubectl edit clusterrole node-get-put-list-role
 ```
 
 Add the `watch` permission and save the edit window.
@@ -39,7 +39,7 @@ Add the `watch` permission and save the edit window.
 Run the following command to list the existing nodes and their labels.
 
 ```text
-$ kubectl get nodes --show-labels
+kubectl get nodes --show-labels
 NAME      STATUS    AGE       VERSION   LABELS
 vm-1      Ready     14d       v1.7.4    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=vm-1,node-role.kubernetes.io/master=
 vm-2      Ready     14d       v1.7.4    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=vm-2
@@ -49,10 +49,10 @@ vm-3      Ready     14d       v1.7.4    beta.kubernetes.io/arch=amd64,beta.kuber
 To indicate node `vm-2` is placed on `rack1` update the node label in the following way:
 
 ```text
-$ kubectl label nodes vm-2 px/rack=rack1
+kubectl label nodes vm-2 px/rack=rack1
 node "vm-2" labeled
 
-$ kubectl get nodes --show-labels
+kubectl get nodes --show-labels
 NAME      STATUS    AGE       VERSION   LABELS
 vm-1      Ready     14d       v1.7.4    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=vm-1,node-role.kubernetes.io/master=
 vm-2      Ready     14d       v1.7.4    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=vm-2,px/rack=rack1
@@ -66,7 +66,7 @@ kubectl will show the node vm-2 with the new `px/rack` label.
 Double check if the rack information is reflected in the PX cluster.
 
 ```text
-$ /opt/pwx/bin/pxctl cluster provision-status
+/opt/pwx/bin/pxctl cluster provision-status
 NODE        NODE STATUS        POOL        POOL STATUS .....   ZONE           REGION        RACK
 vm-2        Online                0        Online      .....   default        default       rack1
 vm-3        Online                0        Online      .....   default        default       default

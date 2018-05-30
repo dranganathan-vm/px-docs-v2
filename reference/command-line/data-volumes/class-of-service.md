@@ -11,7 +11,7 @@ Applications have different storage performance requirements; some require highe
 To create a volume with a specific class of service level, use the `--io_prioirity` parameter in the volume create options. As with other parameters, this CoS parameter can also be passed in as a label via Docker or any scheduler.
 
 ```text
-# /opt/pwx/bin/pxctl volume create --io_priority high volume-name
+/opt/pwx/bin/pxctl volume create --io_priority high volume-name
 ```
 
 Here is an example output from [fio](https://github.com/axboe/fio) when measuring the CoS feature on an Intel server with NVMe and SATA drives.
@@ -47,7 +47,7 @@ Here, we create volumes of 3 different volume types in AWS. Refer to [AWS EBS vo
 Here is what you should see when you list your block devices:
 
 ```text
-# lsblk
+lsblk
 NAME                                                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 xvda                                                    202:0    0   64G  0 disk
 └─xvda1                                                 202:1    0   64G  0 part /
@@ -59,7 +59,7 @@ xvdn                                                    202:208  0  999G  0 disk
 Create a `config.json` with the following drives in it… we will add the fourth standard ebs volume later
 
 ```text
-# cat /etc/pwx/config.json
+cat /etc/pwx/config.json
 {
     "alertingurl": "",
     "clusterid": "cos-demo-cluster",
@@ -79,7 +79,7 @@ Create a `config.json` with the following drives in it… we will add the fourth
 ```
 
 ```text
-# pxctl status
+pxctl status
 Status: PX is operational
 Node ID: 5f794df0-b337-42d7-afc0-440c19fc4b0e
         IP: 172.31.2.134
@@ -107,7 +107,7 @@ The `status` command on any node shows the pools with different classes of servi
 #### Inspect different pools {#inspect-different-pools}
 
 ```text
-# /opt/pwx/bin/pxctl service drives
+/opt/pwx/bin/pxctl service drives
 PX drive configuration:
 Pool ID: 0
 	Cos: COS_TYPE_LOW
@@ -137,18 +137,20 @@ Pool ID: 2
 Let’s first create three volumes with a high, medium and low class of service:
 
 ```text
-# /opt/pwx/bin/pxctl volume create --io_priority high test-high --size 8
+/opt/pwx/bin/pxctl volume create --io_priority high test-high --size 8
 test-high
-# /opt/pwx/bin/pxctl volume create --io_priority med test-med --size 8
+
+/opt/pwx/bin/pxctl volume create --io_priority med test-med --size 8
 test-med
-# /opt/pwx/bin/pxctl volume create --io_priority low test-low --size 8
+
+/opt/pwx/bin/pxctl volume create --io_priority low test-low --size 8
 test-low
 ```
 
 Now we use [fio](https://github.com/axboe/fio) to measure PX volume performance on each of these volumes. Note that backend disk performance while performance tests are running can be visualized with iostat
 
 ```text
-# iostat -xm 1
+iostat -xm 1
 
 Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
 xvdj             30.00   114.00  660.00  380.00    10.61    43.66   106.87    48.63   93.53    1.30  253.71   0.67  70.00
@@ -159,7 +161,7 @@ xvdn              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0
 **Test a high CoS volume on EBS**
 
 ```text
-# docker run --rm --volume-driver=pxd -v test-high:/test          \
+docker run --rm --volume-driver=pxd -v test-high:/test          \
 	gourao/fio /usr/bin/fio --blocksize=16k -directory=/test      \
 	--filename=test --ioengine=libaio --readwrite=randrw          \
 	--size=1G --name=test --verify=meta --do_verify=1             \
@@ -193,7 +195,7 @@ Disk stats (read/write):
 **Test a medium CoS volume on EBS**
 
 ```text
-# docker run --rm --volume-driver=pxd -v test-med:/test            \
+docker run --rm --volume-driver=pxd -v test-med:/test            \
 	gourao/fio /usr/bin/fio --blocksize=16k -directory=/test       \
 	--filename=test --ioengine=libaio --readwrite=randrw           \
 	--size=4G --name=test --direct=1 --gtod_reduce=1               \
@@ -226,7 +228,7 @@ Disk stats (read/write):
 **Test a low CoS volume on EBS**
 
 ```text
-# docker run --rm --volume-driver=pxd -v test-low:/test           \
+docker run --rm --volume-driver=pxd -v test-low:/test           \
 	gourao/fio /usr/bin/fio --blocksize=4k -directory=/test       \
 	--filename=test --ioengine=libaio --readwrite=randrw          \
 	--size=1G --name=test --direct=1 --gtod_reduce=1              \

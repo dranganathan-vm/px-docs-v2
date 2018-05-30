@@ -12,7 +12,7 @@ To view the storage devices on your server, use the `lsblk` command.
 For example:
 
 ```text
-# lsblk
+lsblk
     NAME                      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
     xvda                      202:0    0     8G  0 disk
     └─xvda1                   202:1    0     8G  0 part /
@@ -151,7 +151,7 @@ NOTE: Setting environment variables can be done using the `-e` option, during [P
 
 ```text
 # Example PX-OCI config with extra "PX_ENABLE_CACHE_FLUSH" environment variable
-$ sudo /opt/pwx/bin/px-runc install -e PX_ENABLE_CACHE_FLUSH=yes \
+sudo /opt/pwx/bin/px-runc install -e PX_ENABLE_CACHE_FLUSH=yes \
     -c MY_CLUSTER_ID -k etcd://myetc.company.com:2379 -s /dev/xvdb
 ```
 
@@ -201,13 +201,13 @@ With **pxctl**, you can also inspect volumes, the volume relationships with cont
 To view the global storage capacity, run:
 
 ```text
-# sudo /opt/pwx/bin/pxctl status
+sudo /opt/pwx/bin/pxctl status
 ```
 
 The following sample output of `pxctl status` shows that the global capacity for Docker containers is 128 GB.
 
 ```text
-# /opt/pwx/bin/pxctl status
+/opt/pwx/bin/pxctl status
 Status: PX is operational
 Node ID: 0a0f1f22-374c-4082-8040-5528686b42be
 	IP: 172.31.50.10

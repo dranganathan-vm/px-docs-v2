@@ -52,7 +52,7 @@ If you already have a running Portworx installation, update `/etc/pwx/config.jso
 If you are deploying PX with your PX configuration created before hand, then add the following `secrets`section to the `/etc/pwx/config.json`:
 
 ```text
-# cat /etc/pwx/config.json
+cat /etc/pwx/config.json
 {
     "clusterid": "<cluster-id>",
     "secret": {
@@ -96,7 +96,7 @@ You can start PX on all the EC2 nodes using the above docker run command and ign
 If you do not wish to set AWS environment variables, you can authenticate PX with AWS using PX CLI. Run the following commands:
 
 ```text
-# pxctl secrets aws login
+pxctl secrets aws login
 Enter AWS_ACCESS_KEY_ID [Hit Enter to ignore]: ********************
 Enter AWS_SECRET_ACCESS_KEY [Hit Enter to ignore]: ****************************************
 Enter AWS_SECRET_TOKEN_KEY [Hit Enter to ignore]:
@@ -143,7 +143,7 @@ The above command generates a KMS Data Key and associates it with the `portworx_
 Run the following command to create an encrypted volume using the newly generated KMS Data Key.
 
 ```text
-$ /opt/pwx/bin/pxctl volume create --secure --secret_key portworx_secret --size 20 encrypted_volume
+/opt/pwx/bin/pxctl volume create --secure --secret_key portworx_secret --size 20 encrypted_volume
 ```
 
 ### Setting cluster wide secret key {#setting-cluster-wide-secret-key}
@@ -151,7 +151,7 @@ $ /opt/pwx/bin/pxctl volume create --secure --secret_key portworx_secret --size 
 A cluster wide secret key is a common key that can be used to encrypt all your volumes. You can set the cluster secret key using the following command
 
 ```text
-# /opt/pwx/bin/pxctl secrets set-cluster-key
+/opt/pwx/bin/pxctl secrets set-cluster-key
 Enter cluster wide secret key: *****
 Successfully set cluster secret key!
 

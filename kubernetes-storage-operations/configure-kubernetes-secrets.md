@@ -75,7 +75,7 @@ After ensuring the `portworx` namespace and the required permissions are present
 You will have to edit the Portworx daemonset to use Kubernetes secrets, so that all the new Portworx nodes will start using Kubernetes secrets. You will not have to change the _config.json_ for the new nodes if you edit the daemonset.
 
 ```text
-# kubectl edit daemonset portworx -n kube-system
+kubectl edit daemonset portworx -n kube-system
 ```
 
 Add the `"-secret_type", "k8s"` arguments to the `portworx` container in the daemonset. It should look something like this:
@@ -105,7 +105,7 @@ The following section describes the key generation process with Portworx and Kub
 A cluster wide secret key is a common key that can be used to encrypt all your volumes. First, let us create a cluster wide secret in Kubernetes using `kubectl`:
 
 ```text
-# kubectl -n portworx create secret generic px-vol-encryption \
+kubectl -n portworx create secret generic px-vol-encryption \
   --from-literal=cluster-wide-secret-key=<value>
 ```
 
@@ -114,8 +114,8 @@ Note that the cluster wide secret has to reside in the `px-vol-encryption` secre
 Now you have to give Portworx the cluster wide secret key, that acts as the default encryption key for all volumes.
 
 ```text
-# PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-# kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl secrets set-cluster-key \
+PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
+kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl secrets set-cluster-key \
   --secret pwx/secrets/cluster-wide-secret-key
 Successfully set cluster secret key
 ```
@@ -127,8 +127,8 @@ This command needs to be run just once for the cluster. If you have added the [c
 If you wish to quickly try Kubernetes secrets, you can authenticate Portworx with Kubernetes Secrets using Portworx CLI. Run the following command:
 
 ```text
-# PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-# kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl secrets k8s login
+PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
+kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl secrets k8s login
 Successfully authenticated with Kubernetes Secrets.
 ** WARNING, this is probably not what you want to do. This login will not be persisted across PX or node reboots. Please put your login information in /etc/pwx/config.json or refer docs.portworx.com for more information.
 ```

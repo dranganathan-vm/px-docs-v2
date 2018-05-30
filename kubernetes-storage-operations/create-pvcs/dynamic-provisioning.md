@@ -29,7 +29,7 @@ Using Dynamic Provisioning and Storage Classes you don’t need to create Portwo
 Create the storageclass:
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-sc.yaml
+kubectl create -f examples/volumes/portworx/portworx-sc.yaml
 ```
 
 Example:
@@ -47,7 +47,7 @@ Example:
 Verifying storage class is created:
 
 ```text
-# kubectl describe storageclass portworx-sc
+kubectl describe storageclass portworx-sc
      Name: 	        	portworx-sc
      IsDefaultClass:	        No
      Annotations:		<none>
@@ -61,7 +61,7 @@ Verifying storage class is created:
 Creating the persistent volume claim:
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-volume-pvcsc.yaml
+kubectl create -f examples/volumes/portworx/portworx-volume-pvcsc.yaml
 ```
 
 Example:
@@ -84,7 +84,7 @@ Example:
 Verifying persistent volume claim is created:
 
 ```text
-# kubectl describe pvc pvcsc001
+kubectl describe pvc pvcsc001
     Name:	      	pvcsc001
     Namespace:      default
     StorageClass:   portworx-sc
@@ -101,7 +101,7 @@ Persistent Volume is automatically created and is bounded to this pvc.
 Verifying persistent volume claim is created:
 
 ```text
-# kubectl describe pv pvc-e5578707-c626-11e6-baf6-08002729a32b
+kubectl describe pv pvc-e5578707-c626-11e6-baf6-08002729a32b
     Name: 	      	pvc-e5578707-c626-11e6-baf6-08002729a32b
     Labels:        	<none>
     StorageClass:  	portworx-sc
@@ -122,7 +122,7 @@ Verifying persistent volume claim is created:
 Create the pod:
 
 ```text
-# kubectl create -f examples/volumes/portworx/portworx-volume-pvcscpod.yaml
+kubectl create -f examples/volumes/portworx/portworx-volume-pvcscpod.yaml
 ```
 
 Example:
@@ -148,7 +148,7 @@ Example:
 Verifying pod is created:
 
 ```text
-# kubectl get pod pvpod
+kubectl get pod pvpod
    NAME      READY     STATUS    RESTARTS   AGE
    pvpod       1/1     Running   0          48m
 ```

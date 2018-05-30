@@ -24,7 +24,7 @@ You should see the Kafka service available in your universe as Portworx-Kafka
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
- $ dcos package install --yes portworx-kafka
+ dcos package install --yes portworx-kafka
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”.
@@ -60,7 +60,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the portworx-kafka service in ACTIVE state with 3 running tasks
 
 ```text
- $ dcos service
+ dcos service
  NAME                           HOST             ACTIVE  TASKS  CPU   MEM      DISK   ID                                         
  portworx-kafka      ip-10-0-3-116.ec2.internal   True     3    3.0  6144.0    0.0    66d598b0-2f90-4d0a-9567-8468a9979190-0038  
  marathon                    10.0.7.49            True     2    2.0  2048.0    0.0    66d598b0-2f90-4d0a-9567-8468a9979190-0001  
@@ -74,13 +74,13 @@ If you run the “dcos service” command you should see the portworx-kafka serv
 From the DCOS client; install the new command for portworx-kafka
 
 ```text
-  $ dcos package install portworx-kafka --cli
+  dcos package install portworx-kafka --cli
 ```
 
 Find out all the kafka broker endpoints
 
 ```text
-  $ dcos portworx-kafka endpoints broker
+  dcos portworx-kafka endpoints broker
   {
    "address": [
     "10.0.2.82:1025",
@@ -99,14 +99,14 @@ Find out all the kafka broker endpoints
 Find out the zookeeper endpoint for the create kafka service
 
 ```text
- $ dcos portworx-kafka endpoints zookeeper
+ dcos portworx-kafka endpoints zookeeper
  master.mesos:2181/dcos-service-portworx-kafka
 ```
 
 Create a topic, from the DCOS client use dcos command to create a test topic `test-one` with replication set to three
 
 ```text
-$ dcos portworx-kafka topic create test-one --partitions 1 --replication 3
+dcos portworx-kafka topic create test-one --partitions 1 --replication 3
 {
     "message": "Output: Created topic \"test-one\".\n"
 }
@@ -115,7 +115,7 @@ $ dcos portworx-kafka topic create test-one --partitions 1 --replication 3
 Connect to the master node and launch a kafka client container.
 
 ```text
- $ dcos node ssh --master-proxy --leader
+ dcos node ssh --master-proxy --leader
 
  core@ip-10-0-6-66 ~ $ docker run -it mesosphere/kafka-client
  root@d19258d46fd3:/bin#
@@ -124,13 +124,13 @@ Connect to the master node and launch a kafka client container.
 Produce a message and send to all kafka brokers
 
 ```text
- $  echo "Hello, World." | ./kafka-console-producer.sh --broker-list kafka-2-broker.portworx-kafka.mesos:1025,kafka-0-broker.portworx-kafka.mesos:1025,kafka-1-broker.portworx-kafka.mesos:1029 --topic test-one
+ echo "Hello, World." | ./kafka-console-producer.sh --broker-list kafka-2-broker.portworx-kafka.mesos:1025,kafka-0-broker.portworx-kafka.mesos:1025,kafka-1-broker.portworx-kafka.mesos:1029 --topic test-one
 ```
 
 Consume the message
 
 ```text
- $ ./kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-portworx-kafka --topic test-one --from-beginning
+ ./kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-portworx-kafka --topic test-one --from-beginning
  Hello, World.
 ```
 

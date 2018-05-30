@@ -15,8 +15,8 @@ The scope of the `pxctl` command is global to the cluster. Running `pxctl` from 
 This current release of `pxctl` requires that you run as a privileged user. The `pxctl` tool is available in the `/opt/pwx/bin/` directory. To run `pxctl` without typing the full directory path each time, add `pxctl` to your PATH as follows:
 
 ```text
-# sudo su
-# export PATH=/opt/pwx/bin:$PATH
+sudo su
+export PATH=/opt/pwx/bin:$PATH
 ```
 
 `pxctl` provides capabilities to perform much more fine-grained control of the PX resources cluster-wide and as seen above offers capabilties to manage volumes, snapshots, cluster resources, hosts in the cluster and software upgrade in the cluster.
@@ -26,7 +26,7 @@ Now you can just type `pxctl` and you’re ready to start.
 #### Version {#version}
 
 ```text
-# sudo /opt/pwx/bin/pxctl -v
+sudo /opt/pwx/bin/pxctl -v
 pxctl version 2.2.0-555ffff
 ```
 
@@ -35,7 +35,7 @@ pxctl version 2.2.0-555ffff
 To view all the commands offered by pxctl, type ‘pxctl help’
 
 ```text
-# sudo /opt/pwx/bin/pxctl help
+sudo /opt/pwx/bin/pxctl help
 NAME:
    pxctl - px cli
 
@@ -72,13 +72,13 @@ GLOBAL OPTIONS:
 The status command gives summary like node details, cluster members, global storage capacity etc.
 
 ```text
-# sudo /opt/pwx/bin/pxctl status
+sudo /opt/pwx/bin/pxctl status
 ```
 
 The following sample output of `pxctl status` shows that the global capacity for Docker containers is 128 GB.
 
 ```text
-# /opt/pwx/bin/pxctl status
+/opt/pwx/bin/pxctl status
 Status: PX is operational
 Node ID: 0a0f1f22-374c-4082-8040-5528686b42be
 	IP: 172.31.50.10
@@ -135,14 +135,14 @@ You must make PX login to the secrets endpoint when using encrypted volumes and 
 `pxctl secrets` can be used to configure authentication credentials and endpoints - Vault, Amazon KMS, KVDB are currently supported. Vault example \(Note: To install and configure Vault, peruse [this link](https://www.vaultproject.io/intro/getting-started/install.html)\)
 
 ```text
-# sudo /opt/pwx/bin/pxctl secrets vault login --vault-address http://myvault.myorg.com --vault-token myvaulttoken
+sudo /opt/pwx/bin/pxctl secrets vault login --vault-address http://myvault.myorg.com --vault-token myvaulttoken
 Successfully authenticated with Vault.
 ```
 
 AWS KMS example
 
 ```text
-# sudo /opt/pwx/bin/pxctl secrets aws login
+sudo /opt/pwx/bin/pxctl secrets aws login
 Enter AWS_ACCESS_KEY_ID [Hit Enter to ignore]: ***
 Enter AWS_SECRET_ACCESS_KEY [Hit Enter to ignore]: ***
 Enter AWS_SECRET_TOKEN_KEY [Hit Enter to ignore]: ***

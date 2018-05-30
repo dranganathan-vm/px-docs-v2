@@ -14,7 +14,7 @@ This document demonstrates how to use StatefulSets with Kubernetes and Portworx 
 #### Step1: Create Storage Class. {#step1-create-storage-class}
 
 ```text
-# kubectl create -f portworx-mysql-sc.yaml
+kubectl create -f portworx-mysql-sc.yaml
 ```
 
 [Download example](https://docs.portworx.com/k8s-samples/portworx-mysql-sc.yaml?raw=true)
@@ -34,7 +34,7 @@ parameters:
 Verify the storageclass is created
 
 ```text
-# kubectl describe storageclass  portworx-repl2
+kubectl describe storageclass  portworx-repl2
 Name:		portworx-repl2
 IsDefaultClass:	No
 Annotations:	<none>
@@ -47,7 +47,7 @@ No events.
 #### Step2: Create a Statefulset {#step2-create-a-statefulset}
 
 ```text
-# kubectl create -f portworx-mysql-statefulset.yaml
+kubectl create -f portworx-mysql-statefulset.yaml
 ```
 
 [Download example](https://docs.portworx.com/k8s-samples/portworx-mysql-statefulset.yaml?raw=true)
@@ -109,7 +109,7 @@ spec:
 #### Verifying statefulset is created {#verifying-statefulset-is-created}
 
 ```text
-# kubectl describe statefulset mysql-statefull
+kubectl describe statefulset mysql-statefull
 Name:			mysql-statefull
 Namespace:		default
 Image(s):		mysql:5.6

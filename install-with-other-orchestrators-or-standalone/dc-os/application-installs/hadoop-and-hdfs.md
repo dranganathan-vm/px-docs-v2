@@ -22,7 +22,7 @@ The Portworx-hadoop service can be found in the DC/OS catalog:
 If you want to use the defaults, you can now run the dcos command to install the service
 
 ```text
-$ dcos package install --yes portworx-hadoop
+dcos package install --yes portworx-hadoop
 ```
 
 You can also click on the “Install” button on the WebUI next to the service and then click “Install Package”.
@@ -58,7 +58,7 @@ If you check your Portworx cluster, you should see multiple volumes that were au
 If you run the “dcos service” command you should see the portworx-hadoop service in ACTIVE state with 13 running tasks
 
 ```text
-$ dcos service
+dcos service
 NAME                         HOST                    ACTIVE  TASKS  CPU    MEM    DISK  ID                                         
 portworx-hadoop           10.0.0.135                  True     13   9.0  32768.0  0.0   5c6438b2-1f63-4c23-b62a-ad0a7d354a91-0113  
 marathon                  10.0.4.21                   True     1    1.0   1024.0  0.0   01d86b9c-ca2c-4c3c-9d9f-d3a3ef3e3911-0001  

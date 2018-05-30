@@ -50,7 +50,7 @@ This section is relevant for either of the below 2 scenarios
 Add the following `secret_type`, `cluster_secret_key` and `vault` section to the `/etc/pwx/config.json` on each node in the cluster:
 
 ```text
-# cat /etc/pwx/config.json
+cat /etc/pwx/config.json
 {
     "clusterid": "<cluster-id>",
     "secret": {
@@ -79,7 +79,7 @@ The following sections describe the key generation process with Portworx and Vau
 A cluster wide secret key is a common key that can be used to encrypt all your volumes. You can set the cluster secret key using the following command.
 
 ```text
-# /opt/pwx/bin/pxctl secrets set-cluster-key
+/opt/pwx/bin/pxctl secrets set-cluster-key
 Enter cluster wide secret key: *****
 Successfully set cluster secret key!
 ```
@@ -91,7 +91,7 @@ This command needs to be run just once for the cluster. If you have added the cl
 If you do not wish to set Vault environment variables, you can authenticate Portworx with Vault using Portworx CLI. Run the following command:
 
 ```text
-# /opt/pwx/bin/pxctl secrets vault login \
+/opt/pwx/bin/pxctl secrets vault login \
   --vault-address <vault-endpoint-address> \
   --vault-token <vault-token>
 Successfully authenticated with Vault.

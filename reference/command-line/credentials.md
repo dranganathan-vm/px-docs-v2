@@ -13,7 +13,7 @@ This command is used to create/list/validate/delete the credentials for cloud pr
 Note: It will create a bucket with the portworx cluster ID to use for the backups
 
 ```text
-$ /opt/pwx/bin/pxctl credentials
+/opt/pwx/bin/pxctl credentials
 NAME:
    pxctl credentials - Manage credentials for cloud providers
 
@@ -35,7 +35,7 @@ OPTIONS:
 `pxctl credentials list` is used to list all configured credential keys
 
 ```text
-$ /opt/pwx/bin/pxctl credentials list
+/opt/pwx/bin/pxctl credentials list
 
 S3 Credentials
 UUID						REGION			ENDPOINT			ACCESS KEY			SSL ENABLED	ENCRYPTION
@@ -51,7 +51,7 @@ ffffffff-ffff-ffff-ffff-ffffffffffff		portworxtest		false
 `pxctl credentials create` is used to create/configure credentials for various cloud providers
 
 ```text
-$ /opt/pwx/bin/pxctl cred create \
+/opt/pwx/bin/pxctl cred create \
   --provider s3 \
   --s3-access-key ***** \
   --s3-secret-key ***** \
@@ -65,7 +65,7 @@ Credentials created successfully
 `pxctl credentials delete` is used to delete the credentials from the cloud providers.
 
 ```text
-$ /opt/pwx/bin/pxctl cred delete --uuid ffffffff-ffff-ffff-1111-ffffffffffff
+/opt/pwx/bin/pxctl cred delete --uuid ffffffff-ffff-ffff-1111-ffffffffffff
 Credential deleted successfully
 ```
 
@@ -74,7 +74,7 @@ Credential deleted successfully
 `pxctl credentials validate` validates the existing credentials
 
 ```text
-$ /opt/pwx/bin/pxctl cred validate --uuid ffffffff-ffff-ffff-1111-ffffffffffff
+/opt/pwx/bin/pxctl cred validate --uuid ffffffff-ffff-ffff-1111-ffffffffffff
 Credential validated successfully
 ```
 

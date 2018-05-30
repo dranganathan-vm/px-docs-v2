@@ -45,13 +45,13 @@ If you need to change the [dnsPolicy](https://kubernetes.io/docs/concepts/servic
 
 ```text
   # Apply change to DNS-Policy, wait for change to propagate (rollout) to all the nodes
-  $ kubectl apply -f px_oci-updatedDnsPolicy.yaml
-  $ kubectl rollout status -n kube-system ds/portworx
+  kubectl apply -f px_oci-updatedDnsPolicy.yaml
+  kubectl rollout status -n kube-system ds/portworx
   
   # Request restart of PX-OCI services
-  $ kubectl label nodes --all px/service=restart --overwrite
+  kubectl label nodes --all px/service=restart --overwrite
   # [OPTIONAL] Clean up the node-label after services restarted
-  $ sleep 30; kubectl label nodes --all px/service-
+  sleep 30; kubectl label nodes --all px/service-
 ```
 
 #### Application pods {#application-pods}
@@ -74,15 +74,15 @@ If you need to change the [dnsPolicy](https://kubernetes.io/docs/concepts/servic
 * Get PX cluster status:
 
   ```text
-  $ PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-  $ kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
+  PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
+  kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
   ```
 
 * List PX volumes:
 
   ```text
-  $ PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-  $ kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl volume list
+  PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
+  kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl volume list
   ```
 
 * Portworx logs
@@ -96,14 +96,14 @@ If you need to change the [dnsPolicy](https://kubernetes.io/docs/concepts/servic
 Please run the following commands on any one of the nodes running Portworx:
 
 ```text
-# uname -a
-# docker version
-# kubectl version
-# kubectl logs -n kube-system -l name=portworx --tail=1000
-# kubectl get pods -n kube-system -l name=portworx -o wide
-# PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-# kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
-# kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl volume list
+uname -a
+docker version
+kubectl version
+kubectl logs -n kube-system -l name=portworx --tail=1000
+kubectl get pods -n kube-system -l name=portworx -o wide
+PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
+kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
+kubectl exec $PX_POD -n kube-system -- /opt/pwx/bin/pxctl volume list
 ```
 
 Include above logs when contacting us.
