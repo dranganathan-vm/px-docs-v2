@@ -1,20 +1,16 @@
 # Portworx Documentation
 
-This guide teaches you how to install and maintain Portworx. The guide is divided into three parts, as illustrated below.
+This guide is divided into two parts that cover Portworx installation and maintenance.
 
-![](.gitbook/assets/documentationorganization.png)
+## Installation
 
+After you ensure that your system meets the installation prerequisites, you will install Portworx with Kubernetes, another container orchestrator or standalone. To start your installation, click on _Start Here: Installation_ on the navigation tree to the left, or click the **Next** button below.
 
+## Maintenance
 
-Begin by reading the section _Start Here: Installation_ in Part 1. 
+Following your installation, refer to the maintenance documentation on this site as needed. This documentation starts with the _Reference_ topic and continues to the bottom of the site.
 
-Following that, proceed to Part 2. Follow one of the two paths shown in the orange circular rectangles. The path you take depends on the container orchestrator you are using during your install.
-
-After finishing Part 2, your Portworx installation is complete. You should read Part 3 for information on maintaining Portworx.
-
-As you work through the install in Parts 1 and 2, you do not need to refer back to this page to see what to do next. The instructions will guide you along the right path.
-
-### Release Notes
+## Release Notes
 
 {% page-ref page="reference/release-notes/" %}
 
