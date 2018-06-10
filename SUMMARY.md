@@ -7,7 +7,7 @@
   * [1. Generate the Spec](portworx-install-with-kubernetes/1.-generate-the-spec.md)
   * [2. Secure ETCD and Certificates](portworx-install-with-kubernetes/2.-secure-etcd-and-certificates.md)
   * [3. Apply the Spec](portworx-install-with-kubernetes/3.-apply-the-spec.md)
-* [Application Install with Kubernetes](application-install-with-kubernetes/README.md)
+* [Stateful applications on Kubernetes](application-install-with-kubernetes/README.md)
   * [Cassandra](application-install-with-kubernetes/cassandra/README.md)
     * [Measuring Performance](application-install-with-kubernetes/cassandra/measuring-performance.md)
     * [Snapshots](application-install-with-kubernetes/cassandra/snapshots.md)
