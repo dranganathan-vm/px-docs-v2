@@ -18,7 +18,7 @@
   * [PostgreSQL](application-install-with-kubernetes/postgresql.md)
   * [Redis](application-install-with-kubernetes/redis.md)
   * [WordPress and MySQL](application-install-with-kubernetes/wordpress-and-mysql.md)
-* [Kubernetes Operations](kubernetes-operations/README.md)
+* [Storage Operations on Kubernetes](kubernetes-operations/README.md)
   * [Configure Kubernetes Secrets](kubernetes-operations/configure-kubernetes-secrets.md)
   * [Create PVCs](kubernetes-operations/create-pvcs/README.md)
     * [Dynamic Provisioning](kubernetes-operations/create-pvcs/dynamic-provisioning.md)
