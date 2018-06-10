@@ -2,7 +2,7 @@
 
 * [Portworx Documentation](README.md)
 * [Start Here: Installation](start-here-installation.md)
-* [Platform Install with Kubernetes](platform-install-with-kubernetes.md)
+* [Preparing your Platform for Install](platform-install-with-kubernetes.md)
 * [Install on Kubernetes](portworx-install-with-kubernetes/README.md)
   * [1. Generate the Spec](portworx-install-with-kubernetes/1.-generate-the-spec.md)
   * [2. Secure ETCD and Certificates](portworx-install-with-kubernetes/2.-secure-etcd-and-certificates.md)
