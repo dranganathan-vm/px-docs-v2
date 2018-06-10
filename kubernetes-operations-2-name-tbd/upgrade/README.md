@@ -7,7 +7,7 @@ This guide describes the procedure to upgrade Portworx running as OCI container 
 
 You are running Portworx as OCI if the Portworx daemonset image is _portworx/oci-monitor_. If not, you first need to migrate to OCI. To do that, click the link below.
 
-{% page-ref page="migrating-to-oci.md" %}
+{% page-ref page="migrate-to-oci.md" %}
 
 To upgrade to the **1.3 stable** release, run the curl command:
 

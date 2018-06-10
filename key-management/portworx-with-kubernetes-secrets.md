@@ -102,7 +102,7 @@ The following section describes the key generation process with Portworx and Kub
 
 {% page-ref page="../reference/command-line/data-volumes/encrypted-volumes.md" %}
 
-{% page-ref page="../kubernetes-storage-operations/create-pvcs/create-encrypted-pvcs.md" %}
+{% page-ref page="../kubernetes-operations/create-pvcs/create-encrypted-pvcs.md" %}
 
 **Setting cluster wide secret key**
 
